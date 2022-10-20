@@ -18,23 +18,42 @@
           v-model="name"
           name="name"
           placeholder="Name"
+          @input="validateName"
         >
+        <div class="error">
+          <transition name="fade"></transition>
+            <InputError v-show="this.errors.name" :text="this.errors.name" />
+          <transition></transition>
+        </div>
         <input
           id="email"
           type="email" 
           v-model="email"
           name="email"
           placeholder="Email"
+          @input="validateEmail"
           >
+        <div class="error">
+          <transition name="fade"></transition>
+            <InputError v-show="this.errors.email" :text="this.errors.email" />
+          <transition></transition>
+        </div>
         <textarea
           id="message"
           name="message"
           v-model="message"
           cols="30" rows="5"
-          placeholder="Message">
+          placeholder="Message"
+          @input="validateMessage"
+          >
         </textarea>
+        <div class="error">
+          <transition name="fade"></transition>
+            <InputError v-show="this.errors.message" :text="this.errors.message" />
+          <transition></transition>
+        </div>
         <div>
-          <button @click="sendEmail">Send</button>
+          <button @click="submitForm">Send</button>
         </div>
       </form>
     </div>
@@ -44,14 +63,21 @@
 <script>
 import emailjs from 'emailjs-com';
 import ModalFormInfo from '@/components/ModalFormInfo.vue';
+import InputError from '@/components/InputError.vue';
 
 export default {
   name: 'Form',
   components: {
     ModalFormInfo,
+    InputError,
   },
   data() {
     return {
+      errors: {
+        name: null,
+        email: null,
+        message: null,
+      },
       name: '',
       email: '',
       message: '',
@@ -65,17 +91,52 @@ export default {
         p1: 'Ups!',
         p2: 'Something went wrong...'
       },
+      errorInputMsg: {
+        name: {
+          required: 'Please provide name.',
+          lettersOnly: 'Name can contain letters only.',
+        },
+        email: {
+          required: 'Please provide email.',
+          invalid: 'Email not valid.',
+        },
+        message: {
+          required: 'Please provide message.',
+          length: 'Message must not contain more than 200 characters.'
+        }
+      },
       modalFormInfoTimeout: 2000,
     };
   },
   methods: {
+    validateMessage() {
+      if(this.message === '') this.errors.message = this.errorInputMsg.message.required;
+      else if(this.message.length > 200) this.errors.message = this.errorInputMsg.message.length;
+      else this.errors.message = null;
+
+      return !this.errors.message;
+    },
+    validateEmail() {
+      const regex = /\S+@\S+\.\S+/;
+      if(this.email === '') this.errors.email = this.errorInputMsg.email.required;
+      else if(!regex.test(this.email)) this.errors.email = this.errorInputMsg.email.invalid; 
+      else this.errors.email = null;
+
+      return !this.errors.email;
+    },
+    validateName() {
+      if(this.name === '') this.errors.name = this.errorInputMsg.name.required;
+      else if(!/^[a-zA-Z]+$/.test(this.name)) this.errors.name = this.errorInputMsg.name.lettersOnly;
+      else this.errors.name = null;
+
+      return !this.errors.name;
+    },
     toggleModalFormInfo(success) {
       success ? this.modalFormSuccess = true : this.modalFormSuccess = false;
       this.showModalFormInfo = !this.showModalFormInfo;
       setTimeout(() => this.showModalFormInfo = false, this.modalFormInfoTimeout);
     },
-    sendEmail(e) {
-      e.preventDefault();
+    sendEmail() {
       try {
         emailjs.sendForm('service_ityygsm', 'portfolio_1', '#form',
         process.env.VUE_APP_EMAILJS_USER_ID, {
@@ -92,6 +153,15 @@ export default {
       this.email = ''
       this.message = ''
     },
+    submitForm(e) {
+      e.preventDefault();
+      let valid = false;
+      if(this.validateName()) valid = true;
+      if(this.validateEmail()) valid = true;
+      if(this.validateMessage()) valid = true;
+
+      if(valid) this.sendEmail();
+    }
   },
 };
 </script>
@@ -120,7 +190,6 @@ form {
   input,
   textarea {
     font-size: 1rem;
-    margin-bottom: 1.5rem;
     padding: .4rem;
     background: transparent;
     border: none;
@@ -139,11 +208,16 @@ form {
     margin-top: 1.5rem;
     border-radius: .5rem;
   }
+  .error {
+    min-height: 2rem;
+    line-height: 2;
+  }
   div {
     text-align: center;
 
     button {
       padding: .5rem 1rem;
+      margin-top: .5rem;
       border-radius: .5rem;
       background: #ddd;
       color: #323;

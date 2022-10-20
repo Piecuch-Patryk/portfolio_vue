@@ -1,17 +1,20 @@
 <template>
   <BackgroundImage />
   <Header />
+  <About />
 </template>
 
 <script>
 import BackgroundImage from '@/components/BackgroundImage.vue';
 import Header from '@/components/Header.vue';
+import About from '@/components/About.vue';
 
 export default {
   name: 'App',
   components: {
     BackgroundImage,
     Header,
+    About,
   }
 }
 </script>

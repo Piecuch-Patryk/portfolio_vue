@@ -4,6 +4,7 @@
   <About />
   <Main />
   <Form />
+  <Footer />
 </template>
 
 <script>
@@ -12,6 +13,7 @@ import Header from '@/components/Header.vue';
 import About from '@/components/About.vue';
 import Main from '@/components/Main.vue';
 import Form from '@/components/Form.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'App',
@@ -21,6 +23,7 @@ export default {
     About,
     Main,
     Form,
+    Footer,
   }
 }
 </script>

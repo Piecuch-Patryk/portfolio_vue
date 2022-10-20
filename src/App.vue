@@ -3,6 +3,7 @@
   <Header />
   <About />
   <Main />
+  <Form />
 </template>
 
 <script>
@@ -10,6 +11,7 @@ import BackgroundImage from '@/components/BackgroundImage.vue';
 import Header from '@/components/Header.vue';
 import About from '@/components/About.vue';
 import Main from '@/components/Main.vue';
+import Form from '@/components/Form.vue';
 
 export default {
   name: 'App',
@@ -18,6 +20,7 @@ export default {
     Header,
     About,
     Main,
+    Form,
   }
 }
 </script>

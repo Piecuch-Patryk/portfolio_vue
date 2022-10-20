@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <section>
     <transition name="fade"></transition>
       <ModalFormInfo
         v-show="this.showModalFormInfo"
@@ -38,7 +38,7 @@
         </div>
       </form>
     </div>
-  </article>
+  </section>
 </template>
 
 <script>

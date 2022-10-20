@@ -20,9 +20,9 @@ export default {
 <style lang="scss" scoped>
 header {
   display: flex;
-  flex-direction: column;
+  flex-flow: column-reverse;
   justify-content: space-around;
-  min-height: 80vh;
+  min-height: 90vh;
   background: linear-gradient(0deg, rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 5%, rgba(255,255,255,.4) 10%, rgba(255,255,255,.6) 15%, rgba(255,255,255,.7) 20%, rgba(76,155,246,.7) 56%, rgba(5,121,246,1) 95%);
   text-align: center;
   padding: 1.5rem;
@@ -41,6 +41,8 @@ header {
     rgba(76,155,246,1)
     rgba(100,155,246,1)
     rgba(150,200,246,1);
+    background-color: rgba(255,255,255,.3);
+    margin-bottom: 10vh;
 
     &::before {
       content: '';
@@ -49,7 +51,7 @@ header {
       left: 50%;
       width: 100%;
       height: 5px;
-      box-shadow: 0 30px 15px rgba(0,0,0,.2);
+      box-shadow: 0 30px 15px 2px rgba(0,0,0,.2);
       background-size: cover;
       background-repeat: no-repeat;
       transform: translateX(-50%);
@@ -69,7 +71,7 @@ header {
       padding: 0 1rem;
     }
     p {
-      color: #ddd;
+      // color: #ddd;
     }
   }
 

@@ -2,12 +2,14 @@
   <BackgroundImage />
   <Header />
   <About />
+  <Main />
 </template>
 
 <script>
 import BackgroundImage from '@/components/BackgroundImage.vue';
 import Header from '@/components/Header.vue';
 import About from '@/components/About.vue';
+import Main from '@/components/Main.vue';
 
 export default {
   name: 'App',
@@ -15,6 +17,7 @@ export default {
     BackgroundImage,
     Header,
     About,
+    Main,
   }
 }
 </script>
@@ -23,12 +26,15 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 html {
     scroll-behavior: smooth;
 }
 body {
   font-family: sans-serif;
-  height: 500vh;
+}
+#app {
+  overflow-x: hidden;
 }
 </style>

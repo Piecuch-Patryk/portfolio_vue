@@ -1,6 +1,7 @@
 <template>
   <BackgroundImage />
   <Header />
+  <Button />
   <About />
   <Main />
   <Form />
@@ -10,6 +11,7 @@
 <script>
 import BackgroundImage from '@/components/BackgroundImage.vue';
 import Header from '@/components/Header.vue';
+import Button from '@/components/Button.vue';
 import About from '@/components/About.vue';
 import Main from '@/components/Main.vue';
 import Form from '@/components/Form.vue';
@@ -20,6 +22,7 @@ export default {
   components: {
     BackgroundImage,
     Header,
+    Button,
     About,
     Main,
     Form,

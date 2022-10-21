@@ -1,12 +1,12 @@
 <template>
   <section>
-    <transition name="fade"></transition>
+    <transition name="fade">
       <ModalFormInfo
         v-show="this.showModalFormInfo"
         :text="modalFormSuccess ? this.modalSuccess : this.modalError"
         :color="modalFormSuccess ? 'green' : 'red'" 
       />
-    <transition></transition>
+    </transition>
     <div class="title">
       <h3>Get in touch</h3>
     </div>
@@ -21,9 +21,9 @@
           @input="validateName"
         >
         <div class="error">
-          <transition name="fade"></transition>
+          <transition name="fade">
             <InputError v-show="this.errors.name" :text="this.errors.name" />
-          <transition></transition>
+          </transition>
         </div>
         <input
           id="email"
@@ -34,9 +34,9 @@
           @input="validateEmail"
           >
         <div class="error">
-          <transition name="fade"></transition>
+          <transition name="fade">
             <InputError v-show="this.errors.email" :text="this.errors.email" />
-          <transition></transition>
+          </transition>
         </div>
         <textarea
           id="message"
@@ -48,9 +48,9 @@
           >
         </textarea>
         <div class="error">
-          <transition name="fade"></transition>
+          <transition name="fade">
             <InputError v-show="this.errors.message" :text="this.errors.message" />
-          <transition></transition>
+          </transition>
         </div>
         <div>
           <button @click="submitForm">Send</button>
@@ -224,5 +224,13 @@ form {
       border: none;
     }
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .2s ease;
+}
+.fade-enter-from,
+.fade-enter-to {
+  opacity: 0;
 }
 </style>

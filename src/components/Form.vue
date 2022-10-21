@@ -125,8 +125,9 @@ export default {
       return !this.errors.email;
     },
     validateName() {
+      const regex = /^[a-zA-Z\s]*$/;
       if(this.name === '') this.errors.name = this.errorInputMsg.name.required;
-      else if(!/^[a-zA-Z]+$/.test(this.name)) this.errors.name = this.errorInputMsg.name.lettersOnly;
+      else if(!regex.test(this.name)) this.errors.name = this.errorInputMsg.name.lettersOnly;
       else this.errors.name = null;
 
       return !this.errors.name;

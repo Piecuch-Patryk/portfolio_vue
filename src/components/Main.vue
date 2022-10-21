@@ -22,8 +22,12 @@
             </ul>
           </div>
           <div class="cube__face cube__face--left">
-            <a href="https://devpat.online/projects/norella/public" target="_blank"><i class="fa-sharp fa-solid fa-globe"></i></a>
-            <a href="https://github.com/Piecuch-Patryk/NorellaCMS" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+            <a href="https://devpat.online/projects/norella/public" target="_blank">
+              <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
+            </a>
+            <a href="https://github.com/Piecuch-Patryk/NorellaCMS" target="_blank">
+              <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
+            </a>
           </div>
           <div class="cube__face cube__face--top"></div>
           <div class="cube__face cube__face--bottom"></div>
@@ -185,6 +189,15 @@ main {
 }
 .cube__face--left  {
   background-image: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    font-size: 3rem;
+    color: #ddd;
+    margin: 0 1rem;
+  }
 }
 .cube__face--top  {
   background-image: url("@/assets/norella/norella.png");

@@ -45,12 +45,15 @@ a {
   text-decoration: none;
   color: #ddd;
   background-color: rgba(5,121,246,1);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
   border-radius: 1rem;
   transform-origin: center;
   transition: all .5s ease-in-out;
 
+  @media (min-width: 576px) {
+    bottom: 1.5rem;
+  }
   &.expanded {
     transform: translateX(calc(-50vw + 3.5rem));
     min-width: 7rem;
@@ -58,6 +61,10 @@ a {
   &.colapsed {
     transform: translate(calc(-1rem), 2rem);
     min-width: 3rem;
+
+    @media (min-width: 576px) {
+      bottom: 3rem;
+    }
   }
 
   span {
@@ -66,7 +73,7 @@ a {
     left: 0;
     bottom: 0;
     right: 0;
-    line-height: 1.5;
+    line-height: 1.75;
     min-width: 3rem;
   }
 

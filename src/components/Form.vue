@@ -53,7 +53,7 @@
           </transition>
         </div>
         <div>
-          <button @click="submitForm">Send</button>
+          <button @click="submitForm" id="form-btn">Send</button>
         </div>
       </form>
     </div>
@@ -162,7 +162,7 @@ export default {
       if(this.validateMessage()) valid = true;
 
       if(valid) this.sendEmail();
-    }
+    },
   },
 };
 </script>

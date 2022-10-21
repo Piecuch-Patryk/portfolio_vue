@@ -1,10 +1,12 @@
 <template>
   <header>
-    <div class="text">
-      <h1>Hi! I am Patryk</h1>
-      <p class="subtitle">Junior Full-Stack Developer</p>
-      <p class="content">I design and develop amazing web applications. Some of my recent projects are listed below.</p>
-    </div>
+    <transition name="fade-slide">
+      <div class="text">
+        <h1>Hi! I am Patryk</h1>
+        <p class="subtitle">Junior Full-Stack Developer</p>
+        <p class="content">I design and develop amazing web applications. Some of my recent projects are listed below.</p>
+      </div>
+    </transition>
     <div>
       <img src="@/assets/header.svg" alt="Header image - man working on laptop.">
     </div>
@@ -22,7 +24,7 @@ header {
   display: flex;
   flex-flow: column-reverse;
   justify-content: space-around;
-  min-height: 90vh;
+  min-height: 100vh;
   background: linear-gradient(0deg, rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 5%, rgba(255,255,255,.4) 10%, rgba(255,255,255,.6) 15%, rgba(255,255,255,.7) 20%, rgba(76,155,246,.7) 56%, rgba(5,121,246,1) 95%);
   text-align: center;
   padding: 1.5rem;
@@ -31,7 +33,7 @@ header {
   .text {
     padding: 1.5rem;
     transform:
-    perspective(1000px);
+      perspective(1000px);
     box-shadow:
     rgba(255, 255, 255, 0.42) 0px 60px 123px -25px,
     rgba(255, 255, 255, 0.08) 0px 35px 75px -35px;
@@ -43,6 +45,15 @@ header {
     rgba(150,200,246,1);
     background-color: rgba(255,255,255,.3);
     margin-bottom: 10vh;
+
+    @media (min-width: 576px) {
+      width: 70%;
+      margin: auto;
+
+      img {
+        min-height: 50vh;
+      }
+    }
 
     &::before {
       content: '';

@@ -273,4 +273,43 @@ input {
     scale(1.5)
     translateY(-5%);
 }
+
+@media (min-width: 576px) {
+  .scene {
+    margin-top: 5rem;
+    width: 400px;
+    height: 400px;
+  }
+  .cube {
+    width: 400px;
+    height: 400px;
+    transform: translateZ(-220px);
+  }
+  .cube {
+      transform: translateZ(-220px) rotateY(20deg) rotateX(30deg);
+  }
+
+  .cube.show-front  { transform: translateZ(-220px) rotateY(   0deg); }
+  .cube.show-right  { transform: translateZ(-220px) rotateY( -90deg); }
+  .cube.show-back   { transform: translateZ(-220px) rotateY(-180deg); }
+  .cube.show-left   { transform: translateZ(-220px) rotateY(  90deg); }
+  .cube.show-top    { transform: translateZ(-220px) rotateX( -90deg); }
+  .cube.show-bottom { transform: translateZ(-220px) rotateX(  90deg); }
+
+  .cube__face {
+    width: 400px;
+    height: 400px;
+  }
+
+  .cube__face--front  { transform: rotateY(  0deg) translateZ(220px); }
+  .cube__face--right  { transform: rotateY( 90deg) translateZ(220px); }
+  .cube__face--back   { transform: rotateY(180deg) translateZ(220px); }
+  .cube__face--left   { transform: rotateY(-90deg) translateZ(220px); }
+  .cube__face--top    { transform: rotateX( 90deg) translateZ(220px); }
+  .cube__face--bottom { transform: rotateX(-90deg) translateZ(220px); }
+
+  .cube__nav {
+    width: 60%;
+  }
+}
 </style>

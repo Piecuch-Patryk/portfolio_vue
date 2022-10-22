@@ -105,7 +105,7 @@ main {
 .scene {
   width: 200px;
   height: 200px;
-  perspective: 1000px;
+  perspective: 600px;
   margin: auto;
 }
 
@@ -149,6 +149,7 @@ main {
   border-radius: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   h4 {
     font-size: 1.5rem;
@@ -243,10 +244,6 @@ input {
   margin: auto;
   font-size: 1.2rem;
   padding: 1rem 2rem;
-  transform:
-    perspective(1000px)
-    rotateY(0)
-    translateX(0);
   box-shadow:
   rgba(22, 31, 39, 0.7) 0px 60px 123px -25px,
   rgba(19, 26, 32, 0.2) 0px 35px 75px -35px;
@@ -275,8 +272,13 @@ input {
 }
 
 @media (min-width: 576px) {
+  .text-bg-cover {
+    h4 {
+      font-size: 3rem;
+    }
+  }
   .scene {
-    margin-top: 5rem;
+    margin: auto;
     width: 400px;
     height: 400px;
   }
@@ -308,8 +310,50 @@ input {
   .cube__face--top    { transform: rotateX( 90deg) translateZ(220px); }
   .cube__face--bottom { transform: rotateX(-90deg) translateZ(220px); }
 
+  .cube__face--right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+      display: none;
+    }
+    li {
+      font-size: 2rem;
+    }
+  }
+
+  .cube__face--back {
+    font-size: 2rem;
+  }
+  .cube__face--left {
+    a {
+      font-size: 6rem;
+    }
+  }
   .cube__nav {
-    width: 60%;
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .cube__nav {
+    position: relative;
+    z-index: -1;
+    padding: 2rem 4rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    width: auto;
+    transform:
+      perspective(600px)
+      rotateY(-15deg)
+      translateX(0);
   }
 }
 </style>

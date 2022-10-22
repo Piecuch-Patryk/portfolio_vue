@@ -18,9 +18,14 @@ footer {
   font-size: .7rem;
   font-weight: 300;
   margin-top: 2rem;
-
+  
   p {
     margin-bottom: .5rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 1rem;
+    margin-top: 5rem;
   }
 }
 </style>

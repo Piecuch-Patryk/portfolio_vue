@@ -51,6 +51,11 @@ a {
   transform-origin: center;
   transition: all .5s ease-in-out;
 
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(154, 5, 246);
+  }
+
   @media (min-width: 576px) {
     bottom: 1.5rem;
   }

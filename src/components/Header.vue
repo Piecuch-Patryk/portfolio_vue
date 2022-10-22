@@ -30,6 +30,16 @@ header {
   padding: 1.5rem;
   color: #323;
 
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: start;
+    overflow-x: hidden;
+  }
+  @media (min-width: 1200px) {
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .text {
     padding: 1.5rem;
     transform:
@@ -53,6 +63,17 @@ header {
       img {
         min-height: 50vh;
       }
+    }
+
+    @media (min-width: 992px) {
+      z-index: 2;
+      width: 50%;
+      margin: 50% auto;
+      transition: all .4s ease-in-out;
+      transform:
+        perspective(1000px)
+        rotateY(10deg)
+        translateY(100%);
     }
 
     &::before {
@@ -83,8 +104,60 @@ header {
     }
   }
 
+  @media (min-width: 1200px) {
+    .text {
+
+      width: 50%;
+      margin: 0 auto;
+      transform:
+        perspective(1000px)
+        rotateY(10deg)
+        translateY(0);
+
+      h1 {
+        font-size: 3rem;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        padding: 1rem 0;
+      }
+      .content {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .text {
+      width: 35%;
+    }
+  }
+
+
+
   img {
     width: 100%;
+
+    @media (min-width: 992px) {
+      position: relative;
+      width: 200%;
+      z-index: 1;
+      transition: all .4s ease-in-out;
+      transform:
+        perspective(1000px)
+        rotateY(-10deg)
+        translateX(-30%);
+    }
+
+    @media (min-width: 1200px) {
+      width: 120%;
+      transform:
+        perspective(1000px)
+        rotateY(-10deg)
+        translateX(20px);
+    }
   }
+
 }
 </style>

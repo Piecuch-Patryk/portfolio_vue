@@ -176,6 +176,10 @@ article {
   color: #ddd;
   padding: 2rem;
   font-size: 1.5rem;
+
+  @media (min-width: 992px) {
+    font-size: 2rem;
+  }
 }
 form {
   display: flex;
@@ -187,6 +191,10 @@ form {
   rgba(22, 31, 39, 0.7) 0px 60px 123px -25px,
   rgba(19, 26, 32, 0.2) 0px 35px 75px -35px;
   border-radius: .5rem;
+
+  @media (min-width: 992px) {
+    width: 50%;
+  }
 
   input,
   textarea {
@@ -220,9 +228,28 @@ form {
       padding: .5rem 1rem;
       margin-top: .5rem;
       border-radius: .5rem;
-      background: #ddd;
-      color: #323;
+      background-color: rgba(5,121,246,1);
+      color: #ddd;
       border: none;
+      transition: .2s ease;
+      
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(154, 5, 246);
+        transform: scale(.95);
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    input,
+    textarea {
+      font-size: 1.5rem;
+    }
+
+    div {
+      button {
+        font-size: 1.5rem;
+      }
     }
   }
 }

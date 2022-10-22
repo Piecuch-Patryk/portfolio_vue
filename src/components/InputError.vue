@@ -15,5 +15,9 @@ export default {
 p {
   color: red;
   text-align: center;
+
+  @media (min-width: 992px) {
+    font-size: 1.2rem;
+  }
 }
 </style>

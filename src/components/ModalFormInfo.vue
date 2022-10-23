@@ -1,8 +1,12 @@
 <template>
-    <div :style="{ background: color }">
-        <p>{{ text.p1 }}</p>
-        <p>{{ text.p2 }}</p>
+  <transition name="fade">
+    <div class="wrapper">
+      <div>
+        <p :style="{ color: color }">{{ text.p1 }}</p>
+        <p :style="{ color: color }">{{ text.p2 }}</p>
+      </div>
     </div>
+  </transition>
 </template>
 
 <script>
@@ -16,26 +20,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
-    position: fixed;
-    top: 25%;
-    bottom: 0;
-    left: 10%;
-    right: 0;
-    width: 80%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.5);
+  z-index: 100;
+
+  div {
     font-size: 2rem;
     text-align: center;
-    color: #ddd;
     border-radius: .5rem;
-    opacity: .8;
+    background-color: #ddd;
+    padding: 1.5rem 3rem;
 
     p {
         margin-bottom: 1rem;
-    }
+      }
+  }
+
+  &.fade-enter-active {
+    animation-name: bounce-in-zoomout;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+		animation-delay: 0s;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		animation-fill-mode: none;
+  }
+  &.fade-leave-active {
+    opacity: 0;
+  }
 }
 </style>

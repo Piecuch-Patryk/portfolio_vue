@@ -55,6 +55,8 @@ header {
     rgba(150,200,246,1);
     background-color: rgba(255,255,255,.3);
     margin-bottom: 10vh;
+    animation: bounce 1s ease-in 0s 1 normal forwards;
+
 
     @media (min-width: 576px) {
       width: 70%;

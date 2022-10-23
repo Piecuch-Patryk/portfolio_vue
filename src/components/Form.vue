@@ -2,16 +2,21 @@
   <section>
     <transition name="fade">
       <ModalFormInfo
-        v-show="this.showModalFormInfo"
-        :text="modalFormSuccess ? this.modalSuccess : this.modalError"
-        :color="modalFormSuccess ? 'green' : 'red'" 
+      v-show="this.showModalFormInfo"
+      :text="modalFormSuccess ? this.modalSuccess : this.modalError"
+      :color="modalFormSuccess ? 'green' : 'red'" 
       />
     </transition>
     <div class="title">
       <h3>Get in touch</h3>
     </div>
     <div>
-      <form id="form" method="POST">
+      <form id="form" method="POST" :class="[this.animate ? 'shake' : '', this.countIvalidClick >= this.showReprimand.two.clicks ? 'broken' : '']">
+        <Reprimand
+          v-show="this.showReprimand"
+          :reprimandTextOne="showReprimand.one.show ? this.showReprimand.one.text : ''"
+          :reprimandTextTwo="showReprimand.two.show ? this.showReprimand.two.text : ''"
+        />
         <input 
           id="name"
           type="text" 
@@ -64,12 +69,14 @@
 import emailjs from 'emailjs-com';
 import ModalFormInfo from '@/components/ModalFormInfo.vue';
 import InputError from '@/components/InputError.vue';
+import Reprimand from '@/components/Reprimand.vue';
 
 export default {
   name: 'Form',
   components: {
     ModalFormInfo,
     InputError,
+    Reprimand,
   },
   data() {
     return {
@@ -81,6 +88,8 @@ export default {
       name: '',
       email: '',
       message: '',
+      animate: false,
+      countIvalidClick: 0,
       showModalFormInfo: false,
       modalFormSuccess: null,
       modalSuccess: {
@@ -105,7 +114,20 @@ export default {
           length: 'Message must not contain more than 200 characters.'
         }
       },
-      modalFormInfoTimeout: 2000,
+      modalFormInfoTimeout: 3000,
+      showReprimand: {
+        one: {
+          show: false,
+          text: 'Steady, do not break it!',
+          clicks: 3,
+          timeout: 3000,
+        },
+        two: {
+          show: false,
+          text: 'Oh dear, you broke it...',
+          clicks: 5,
+        }
+      }
     };
   },
   methods: {
@@ -154,20 +176,41 @@ export default {
       this.email = ''
       this.message = ''
     },
+    inpatientCounter() {
+      this.countIvalidClick++;
+      if(this.countIvalidClick === this.showReprimand.one.clicks) {
+        this.showReprimand.one.show = true;
+        setTimeout(() => {
+          this.showReprimand.one.show = false;
+        }, this.showReprimand.one.timeout);
+      }
+
+      if(this.countIvalidClick === this.showReprimand.two.clicks) this.showReprimand.two.show = true;
+    },
     submitForm(e) {
-      e.preventDefault();
       let valid = false;
+      e.preventDefault();
+      if(this.countIvalidClick >= this.showReprimand.two.clicks) return;
+
       if(this.validateName()) valid = true;
       if(this.validateEmail()) valid = true;
       if(this.validateMessage()) valid = true;
 
-      if(valid) this.sendEmail();
+      if(!valid) {
+        this.animate = true;
+        this.inpatientCounter();
+        setTimeout(() => {
+          this.animate = false;
+        }, 400);
+      }
+
+      if(valid) return this.sendEmail();
     },
   },
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 article {
   margin-bottom: 5rem;
 }
@@ -194,6 +237,15 @@ form {
 
   @media (min-width: 992px) {
     width: 50%;
+  }
+
+  &.broken {
+    -webkit-animation-name: hinge;
+    animation-name: hinge;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
   }
 
   input,
@@ -253,12 +305,8 @@ form {
     }
   }
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .2s ease;
+.shake {
+  animation: shake .4s ease 0s 1 normal forwards;
 }
-.fade-enter-from,
-.fade-enter-to {
-  opacity: 0;
-}
+
 </style>

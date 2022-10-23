@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="scene__wrap">
+    <div class="scene__wrap fade-in">
       <div class="scene">
         <div class="cube">
           <div class="cube__face cube__face--front">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="slide-in">
       <ul class="cube__nav">
         <li>
           <input id="front" type="radio" name="rotate-cube-side" value="front" checked />

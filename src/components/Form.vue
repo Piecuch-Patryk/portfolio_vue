@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="fade-in">
     <transition name="fade">
       <ModalFormInfo
       v-show="this.showModalFormInfo"

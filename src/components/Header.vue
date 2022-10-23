@@ -1,13 +1,11 @@
 <template>
   <header>
-    <transition name="fade-slide">
-      <div class="text">
-        <h1>Hi! I am Patryk</h1>
-        <p class="subtitle">Junior Full-Stack Developer</p>
-        <p class="content">I design and develop amazing web applications. Some of my recent projects are listed below.</p>
-      </div>
-    </transition>
-    <div>
+    <div class="text fade-in">
+      <h1>Hi! I am Patryk</h1>
+      <p class="subtitle">Junior Full-Stack Developer</p>
+      <p class="content">I design and develop amazing web applications. Some of my recent projects are listed below.</p>
+    </div>
+    <div class="slide-in">
       <img src="@/assets/header.svg" alt="Header image - man working on laptop.">
     </div>
   </header>

@@ -1,9 +1,9 @@
 <template>
   <article>
-    <div>
+    <div class="slide-in">
       <img src="@/assets/about.png" alt="About section image.">
     </div>
-    <div>
+    <div class="fade-in">
       <p>Fully responsive websites and web applications. Small and large projects. Maintaining codes or designing from scratch. Self-taught person with <span class="word-decor">commercial experience</span> in <span class="laravel">Laravel</span> and <span class="magento">Magento2</span>.</p>
     </div>
   </article>

@@ -27,7 +27,62 @@ export default {
     Main,
     Form,
     Footer,
-  }
+  },
+  data() {
+    return {
+      fadeIn:{
+        elements: null,
+        selector: 'fade-in',
+        buffor: 200,
+      },
+      slideIn: {
+        elements: null,
+        selector: 'slide-in',
+        buffor: 200,
+      },
+      fadeInElements: null,
+      fadeElSelector: 'fade-in',
+      fadeBuffor: 400,
+    };
+  },
+  methods: {
+    isVisible(el) {
+      const rect = el.getBoundingClientRect();
+      const elTop = rect.top + this.fadeIn.buffor;
+      const elBottom = rect.bottom;
+      return elTop < window.innerHeight && elBottom >= 0;
+    },
+    handleFadeIn() {
+      for (let i = 0; i < this.fadeIn.elements.length; i++) {
+        let el = this.fadeIn.elements[i];
+        if (this.isVisible(el)) {
+          el.classList.add('show');
+          this.fadeIn.elements.splice(i, 1);
+        }
+      }
+    },
+    handleSlideIn() {
+      for (let i = 0; i < this.slideIn.elements.length; i++) {
+        let el = this.slideIn.elements[i];
+        if (this.isVisible(el)) {
+          el.classList.add('show');
+          this.slideIn.elements.splice(i, 1);
+        }
+      }
+    },
+  },
+  mounted() {
+    this.fadeIn.elements = Array.from(document.getElementsByClassName(this.fadeIn.selector));
+    this.slideIn.elements = Array.from(document.getElementsByClassName(this.slideIn.selector));
+    document.addEventListener('scroll', this.handleFadeIn);
+    document.addEventListener('scroll', this.handleSlideIn);
+    this.handleFadeIn();
+    this.handleSlideIn();
+  },
+  unmounted(){
+    document.removeEventListener('scroll', this.handleFadeIn);
+    document.removeEventListener('scroll', this.handleSlideIn);
+  },
 }
 </script>
 
@@ -45,6 +100,31 @@ body {
 }
 #app {
   overflow-x: hidden;
+}
+.fade-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.3s all ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: scale(1);
+  animation-name: rubberband-horizontal;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+.slide-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-in .5s;
+}
+.slide-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes bounce {
@@ -290,6 +370,30 @@ body {
   100% {
     transform:scale(1);
     animation-timing-function:ease-out;
+  }
+}
+
+@keyframes rubberband-horizontal {
+  0% {
+    transform:scale3d(1,1,1);
+  }
+  30% {
+    transform:scale3d(1.25,.75,1);
+  }
+  40% {
+    transform:scale3d(.75,1.25,1);
+  }
+  50% {
+    transform:scale3d(1.15,.85,1);
+  }
+  65% {
+    transform:scale3d(.95,1.05,1);
+  }
+  75% {
+    transform:scale3d(1.05,.95,1);
+  }
+  100% {
+    transform:scale3d(1,1,1);
   }
 }
 </style>

@@ -120,7 +120,7 @@ body {
 .slide-in {
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1s ease-in .5s;
+  transition: all .2s ease-in-out .2s;
 }
 .slide-in.show {
   opacity: 1;

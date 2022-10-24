@@ -31,7 +31,7 @@ header {
   @media (min-width: 992px) {
     flex-direction: row;
     align-items: start;
-    overflow-x: hidden;
+    overflow: hidden;
   }
   @media (min-width: 1200px) {
     align-items: center;
@@ -125,6 +125,10 @@ header {
         font-size: 1.8rem;
         padding: 0 1rem;
       }
+    }
+
+    .slide-in {
+      min-width: 60%;
     }
   }
 

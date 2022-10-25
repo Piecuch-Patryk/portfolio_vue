@@ -595,28 +595,31 @@ div {
   }
 
   @media (min-width: 576px) {
-    top: -35%;
     left: -135%;
   }
 
   @media (min-width: 768px) {
-    top: -35%;
     left: -90%;
   }
 
   @media (min-width: 992px) {
-    top: -35%;
     left: -55%;
   }
 
   @media (min-width: 1200px) {
-    top: -35%;
     left: -40%;
   }
 
   @media (min-width: 1400px) {
-    top: -35%;
     left: -25%;
+  }
+
+  @media (min-width: 1400px) {
+    left: -15%;
+  }
+
+  @media (min-width: 1600px) {
+    left: -10%;
   }
 
   .bg-cover {

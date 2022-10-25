@@ -560,7 +560,7 @@ export default {
         else this.sunrise = false;
         
         this.$refs.bgCover.style.opacity = winY / 500;
-        if(winY >= winH / 2) return;
+        if(winY >= winH / 4) return;
 
         el.style.transition = `all .2s linear`;
         el.style.transform = `translateY(${winY}px)`;

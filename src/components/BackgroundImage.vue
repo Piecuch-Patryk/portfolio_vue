@@ -1,6 +1,10 @@
 <template>
+  <transition v-show="!sunrise" name="fade">
+    <Stars :stars="stars.sm" />
+  </transition>
   <div>
-    <div class="bg-cover" ref="bgCover"></div>
+    <div class="bg-cover" ref="bgCover">
+    </div>
     <svg
       enable-background="new 0 0 792 612"
       version="1.1"
@@ -548,14 +552,33 @@
 </template>
 
 <script>
+import Stars from '@/components/Stars.vue';
+
 export default {
   name: 'BackgroundImage',
+  components: {
+    Stars,
+  },
   data() {
     return {
       elements: [],
       selector: 'sunset',
       sunrise: false,
       clouds: [],
+      stars: {
+        sm: {
+          qty: 1000,
+          size: 0.6,
+        },
+        md: {
+          qty: 400,
+          size: 0.8,
+        },
+        lg: {
+          qty: 0,
+          size: 1,
+        }
+      },
     };
   },
   methods: {
@@ -573,10 +596,6 @@ export default {
         el.style.transition = `all .2s linear`;
         el.style.transform = `translateY(${winY}px)`;
       });
-    },
-    sunriseOnLoad() {
-      if(window.scrollY === 0) this.sunrise = true;
-      else this.sunrise = false; 
     },
     animateClouds() {
       this.clouds.forEach((cloud, i) => {
@@ -655,7 +674,7 @@ div {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: #111;
+    background-color: #090A0F;
     opacity: 1;
   }
 }

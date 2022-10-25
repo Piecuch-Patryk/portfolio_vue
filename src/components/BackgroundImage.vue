@@ -585,7 +585,7 @@ export default {
 <style lang="scss" scoped>
 div {
   position: fixed;
-  top: -35%;
+  top: -65%;
   left: -225%;
   transition: all .2s ease;
 

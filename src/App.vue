@@ -100,6 +100,7 @@ body {
 }
 #app {
   overflow-x: hidden;
+  background-color: #212C49;
 }
 .fade-in {
   opacity: 0;

@@ -23,7 +23,6 @@ header {
   flex-flow: column-reverse;
   justify-content: space-around;
   min-height: 100vh;
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 5%, rgba(255,255,255,.4) 10%, rgba(255,255,255,.6) 15%, rgba(255,255,255,.7) 20%, rgba(76,155,246,.7) 56%, rgba(5,121,246,1) 95%);
   text-align: center;
   padding: 1.5rem;
   color: #323;

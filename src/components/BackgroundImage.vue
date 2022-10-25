@@ -580,15 +580,18 @@ export default {
     },
     animateClouds() {
       this.clouds.forEach((cloud, i) => {
-        cloud.style.transform = 'translateX(-100%)';
-        if(i < 4) {
-          cloud.style.transition = 'all 300s linear';
+        cloud.classList.add('clouds-animation');
+        if(i < 2) {
+          cloud.style.animationDuration = '700s'
         }
-        if(i > 4) {
-          cloud.style.transition = 'all 130s linear';
+        if(i > 2) {
+          cloud.style.animationDuration = '400s';
         }
-        if(i > 5) {
-          cloud.style.transition = 'all 100s linear';
+        if(i > 3) {
+          cloud.style.animationDuration = '100s';
+        }
+        else {
+          cloud.style.animationDuration = '130s';
         }
       });
     },
@@ -734,4 +737,20 @@ svg {
 .st69 { fill:url(#SVGID_68_); }
 .st70 { fill:url(#SVGID_69_); }
 .st71 { fill:url(#SVGID_70_); }
+
+.clouds-animation {
+  animation-name: clouds;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes clouds {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 </style>

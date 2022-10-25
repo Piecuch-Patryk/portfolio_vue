@@ -22,10 +22,10 @@
             </ul>
           </div>
           <div class="cube__face cube__face--left">
-            <a href="https://devpat.online/projects/norella/public" target="_blank">
+            <a href="https://devpat.online/projects/norella/public/index.php" target="_blank">
               <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
             </a>
-            <a href="https://github.com/Piecuch-Patryk/NorellaCMS" target="_blank">
+            <a href="https://github.com/Piecuch-Patryk/norella" target="_blank">
               <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
             </a>
           </div>

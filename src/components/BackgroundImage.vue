@@ -585,8 +585,39 @@ export default {
 <style lang="scss" scoped>
 div {
   position: fixed;
-  top: -20%;
-  left: -10%;
+  top: -35%;
+  left: -225%;
+  transition: all .2s ease;
+
+  @media (min-width: 460px) {
+    top: -35%;
+    left: -180%;
+  }
+
+  @media (min-width: 576px) {
+    top: -35%;
+    left: -135%;
+  }
+
+  @media (min-width: 768px) {
+    top: -35%;
+    left: -90%;
+  }
+
+  @media (min-width: 992px) {
+    top: -35%;
+    left: -55%;
+  }
+
+  @media (min-width: 1200px) {
+    top: -35%;
+    left: -40%;
+  }
+
+  @media (min-width: 1400px) {
+    top: -35%;
+    left: -25%;
+  }
 
   .bg-cover {
     position: absolute;
@@ -601,7 +632,7 @@ div {
 
 svg {
   height: 2500px;
-  width: 2500px
+  width: 2500px;
 }
 
 .st0 { fill:url(#t); }

@@ -50,6 +50,8 @@ a {
   border-radius: 1rem;
   transform-origin: center;
   transition: all .5s ease-in-out;
+  z-index: 1000;
+  overflow-x: hidden;
 
   &:hover {
     cursor: pointer;

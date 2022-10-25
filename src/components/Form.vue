@@ -231,9 +231,10 @@ form {
   margin: auto;
   padding: 2rem;
   box-shadow:
-  rgba(22, 31, 39, 0.7) 0px 60px 123px -25px,
-  rgba(19, 26, 32, 0.2) 0px 35px 75px -35px;
+  rgba(255, 255, 255, 0.42) 0px 60px 123px -25px,
+  rgba(255, 255, 255, 0.08) 0px 35px 75px -35px;
   border-radius: .5rem;
+  background-color: rgba(255,255,255,.9);
 
   @media (min-width: 992px) {
     width: 50%;
@@ -254,8 +255,8 @@ form {
     padding: .4rem;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #aaa;
-    color: #ddd;
+    border-bottom: 1px solid #333;
+    color: #333;
     transition: .2s ease-in-out;
     
     &:focus {

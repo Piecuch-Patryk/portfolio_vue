@@ -127,7 +127,65 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+@keyframes bounceMobile {
+  0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: 
+      perspective(1000px)
+      translateY(-45px);
+	}
 
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform:
+      perspective(1000px)
+      translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform:
+      perspective(1000px)
+      translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform:
+      perspective(1000px)
+      translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform:
+      perspective(1000px)
+      translateY(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform:
+      perspective(1000px)
+      translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform:
+      perspective(1000px)
+      translateY(0px);
+	}
+}
 @keyframes bounce {
 	0% {
 		animation-timing-function: ease-in;

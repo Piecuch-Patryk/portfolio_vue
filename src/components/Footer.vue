@@ -13,11 +13,13 @@ export default {
 
 <style lang="scss" scoped>
 footer {
+  position: relative;
+  z-index: 1;
   color: #ddd;
   text-align: center;
   font-size: .7rem;
   font-weight: 300;
-  margin-top: 2rem;
+  margin-top: 4rem;
   
   p {
     margin-bottom: .5rem;

@@ -5,7 +5,7 @@
       <p class="subtitle">Junior Full-Stack Developer</p>
       <p class="content">I design and develop amazing web applications. Some of my recent projects are listed below.</p>
     </div>
-    <div class="slide-in">
+    <div class="svg slide-in">
       <img src="@/assets/header.svg" alt="Header image - man working on laptop.">
     </div>
   </header>
@@ -50,9 +50,9 @@ header {
     rgba(76,155,246,1)
     rgba(100,155,246,1)
     rgba(150,200,246,1);
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255,255,255,.9);
     margin-bottom: 10vh;
-    animation: bounce 1s ease-in 0s 1 normal forwards;
+    animation: bounceMobile 1s ease-in 0s 1 normal forwards;
 
 
     @media (min-width: 576px) {
@@ -73,6 +73,7 @@ header {
         perspective(1000px)
         rotateY(10deg)
         translateY(100%);
+      animation: bounce 1s ease-in 0s 1 normal forwards;
     }
 
     &::before {
@@ -100,6 +101,18 @@ header {
     .content {
       line-height: 1.5;
       padding: 0 1rem;
+    }
+  }
+
+  .svg {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    @media (min-width: 992px) {
+      width: 50%;
     }
   }
 

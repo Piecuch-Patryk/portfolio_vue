@@ -100,7 +100,7 @@ main {
   padding: 2rem 2rem 10rem;
 }
 .scene__wrap {
-  margin-top: 4rem;
+  margin-top: 8rem;
 }
 .scene {
   width: 200px;
@@ -244,9 +244,10 @@ input {
   margin: auto;
   font-size: 1.2rem;
   padding: 1rem 2rem;
+  background-color: rgba(255,255,255,.9);
   box-shadow:
-  rgba(22, 31, 39, 0.7) 0px 60px 123px -25px,
-  rgba(19, 26, 32, 0.2) 0px 35px 75px -35px;
+  rgba(255, 255, 255, 0.42) 0px 60px 123px -25px,
+  rgba(255, 255, 255, 0.08) 0px 35px 75px -35px;
   border-radius: 10px;
 }
 .cube__nav li {
@@ -256,7 +257,7 @@ input {
 .cube__nav li label {
   display: block;
   transition: transform .2s ease-in-out;
-  color: #ddd;
+  color: #333;
     
 }
 .cube__nav li label:hover {

@@ -19,7 +19,7 @@ p {
   text-align: center;
   font-size: 2rem;
   &.one {
-    color: #ddd;
+    color: #333;
   }
   &.two {
     color: red;

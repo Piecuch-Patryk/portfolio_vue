@@ -141,7 +141,7 @@ export default {
     validateEmail() {
       const regex = /\S+@\S+\.\S+/;
       if(this.email === '') this.errors.email = this.errorInputMsg.email.required;
-      else if(!regex.test(this.email)) this.errors.email = this.errorInputMsg.email.invalid; 
+      else if(regex.test(this.email)) this.errors.email = this.errorInputMsg.email.invalid; 
       else this.errors.email = null;
 
       return !this.errors.email;
@@ -196,15 +196,14 @@ export default {
       if(this.validateEmail()) valid = true;
       if(this.validateMessage()) valid = true;
 
-      if(!valid) {
+      if(valid) return this.sendEmail();
+      else {
         this.animate = true;
         this.inpatientCounter();
         setTimeout(() => {
           this.animate = false;
-        }, 400);
+        }, 500);
       }
-
-      if(valid) return this.sendEmail();
     },
   },
 };
@@ -262,8 +261,8 @@ form {
     
     &:focus {
       outline: none;
-      border-color: #fff;
-      color: #fff;
+      border-color: rgba(5,121,246,1);
+      color: #333;
     }
   }
   textarea {

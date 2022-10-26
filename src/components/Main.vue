@@ -95,6 +95,8 @@ export default {
 
 <style lang="scss" scoped>
 main {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-flow: column-reverse;
   padding: 2rem 2rem 10rem;

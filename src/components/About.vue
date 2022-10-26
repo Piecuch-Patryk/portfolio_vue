@@ -18,6 +18,8 @@ export default {
 <style lang="scss" scoped>
 article {
   padding: 2rem 1rem;
+  position: relative;
+  z-index: 3;
 
   img {
     width: 100%;

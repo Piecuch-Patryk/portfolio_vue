@@ -211,8 +211,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-article {
-  margin-bottom: 5rem;
+section {
+  position: relative;
+  z-index: 3;
 }
 .title {
   text-align: center;

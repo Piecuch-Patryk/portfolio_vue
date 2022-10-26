@@ -907,7 +907,6 @@ export default {
     fadeIn() {
       this.elToAnimate.forEach((el, i) => {
         setTimeout(() => {
-          console.log(el);
           el.classList.add('show');
         }, 300 * (i + 1));
       });

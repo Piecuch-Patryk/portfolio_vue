@@ -6,6 +6,7 @@
         left: randomInteger() + 'px',
         transform: `scale(${stars.size})`,
       }"
+      ref="star"
     ></span>
   </div>
 </template>
@@ -20,6 +21,22 @@ export default {
     randomInteger(min = 0, max = document.body.clientHeight) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
+    getRandomEl(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    },
+    blinkStar() {
+      const randomEl = this.getRandomEl(this.$refs.star);
+      randomEl.style.transform = 'scale(4)';
+
+      setTimeout(() => {
+        randomEl.style.transform = randomEl.__vnode.props.style.transform;
+        this.blinkStar();
+      }, 1000);
+
+    },
+  },
+  mounted() {
+    this.blinkStar();
   },
 };
 </script>
@@ -41,6 +58,7 @@ export default {
     height: 1px;
     border-radius: 50%;
     background-color: #fff;
+    transition: all .2s ease-in-out;
   }
 }
 </style>

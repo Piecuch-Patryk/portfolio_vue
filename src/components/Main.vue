@@ -65,40 +65,20 @@
       </div>
     </div>
     <div class="wrapper">
-      <div class="container fade-in">
-        <div class="carousel" :style="rotateY">
-          <div class="item a">A</div>
-          <div class="item b">B</div>
-          <div class="item c">C</div>
-          <div class="item d">D</div>
-          <div class="item e">E</div>
-          <div class="item f">F</div>
-        </div>
-      </div>
-      <button @click="rotate('next')" class="next">Next</button>
-      <button @click="rotate('prev')" class="prev">Prev</button>
+      <Carousel />
     </div>
   </main>
 </template>
 
 <script>
+import Carousel from '@/components/Carousel.vue';
+
 export default {
   name: 'Main',
-  data() {
-    return {
-      rotateVal: 0,
-    };
-  },
-  computed: {
-    rotateY () {
-      return { transform: `rotateY(${ this.rotateVal }deg)` };
-    }
+  components: {
+    Carousel,
   },
   methods: {
-    rotate(direction) {
-      if(direction === 'next') this.rotateVal -= 60;
-      if(direction === 'prev') this.rotateVal += 60;
-    },
     cubeInit() {
       const cube = document.querySelector('.cube');
       const radioGroup = document.querySelector('.cube__nav');
@@ -133,7 +113,10 @@ main {
     display: flex;
     flex-flow: column-reverse;
     position: relative;
-    margin-bottom: 10rem;
+
+    &:nth-of-type(2) {
+      margin-top: 10rem;
+    }
   }
 }
 .scene__wrap {
@@ -465,77 +448,4 @@ input {
     font-size: 2.5rem;
   }
 }
-
-.container {
-  margin: 0 auto;
-  width: 200px;
-  height: 200px;
-  position: relative;
-  perspective: 600px;
-}
-
-.carousel {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-}
-
-.item {
-  display: block;
-  position: absolute;
-  background: #000;
-  width: 200px;
-  height: 200px;
-  line-height: 200px;
-  font-size: 5em;
-  text-align: center;
-  color: #FFF;
-  opacity: 0.95;
-  border-radius: 10px;
-}
-
-.a {
-  transform: rotateY(0deg) translateZ(200px);
-  background: #ed1c24;
-}
-.b {
-  transform: rotateY(60deg) translateZ(200px);
-  background: #0072bc;
-}
-.c {
-  transform: rotateY(120deg) translateZ(200px);
-  background: #39b54a;
-}
-.d {
-  transform: rotateY(180deg) translateZ(200px);
-  background: #f26522;
-}
-.e {
-  transform: rotateY(240deg) translateZ(200px);
-  background: #630460;
-} 
-.f {
-  transform: rotateY(300deg) translateZ(200px);
-  background: #8c6239;
-}
-
-.next, .prev {
-  color: #444;
-  position: absolute;
-  bottom: -5rem;
-  padding: 1em 2em;
-  cursor: pointer;
-  border-radius: 5px;
-  border-top: 1px solid #FFF;
-  box-shadow: 0 5px 0 #999;
-  transition: box-shadow 0.1s, top 0.1s;
-}
-.next:hover, .prev:hover { color: #000; }
-.next:active, .prev:active {
-  box-shadow: 0 1px 0 #999;
-}
-.next { right: 5em; }
-.prev { left: 5em; }
 </style>

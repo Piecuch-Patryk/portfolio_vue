@@ -1,6 +1,6 @@
 <template>
   <div class="flip-box">
-    <div class="flip-box-inner">
+    <div class="flip-box-inner" :style="reverse ? 'transform: rotateY(-180deg)' : ''">
       <div class="flip-box-front">
         <img src="@/assets/business_card/Front.png" alt="">
       </div>
@@ -13,8 +13,20 @@
     <h3>Business Card</h3>      
     <h4>Car Mechanic Design</h4>
     <p>Made from scratch in Figma App. Project and design created by myself.</p>
-  </div>    
+    <button @click="reverse = !reverse">{{ reverse ? 'Show Front' : 'Flip Card'}}</button>
+  </div>
 </template>
+
+<script>
+export default {
+  name: 'BusinessCard',
+  data() {
+    return {
+      reverse: false,
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .flip-box {
@@ -28,11 +40,7 @@
   width: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  margin-bottom: 5rem;
-}
-
-.flip-box:hover .flip-box-inner {
-  transform: rotateY(-180deg);
+  margin-bottom: 8rem;
 }
 
 .flip-box-front,
@@ -79,12 +87,32 @@ img {
   p {
     padding: 0 1rem;
   }
+  button {
+    background: none;
+    border-radius: .5rem;
+    border-color: #ddd;
+    padding: .3rem 1rem;
+    font-size: 1rem;
+    color: #ddd;
+    margin: 2rem auto 0;
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 500px) {
   .flip-box {
     width: 75%;
     margin: 0 auto 5rem;
+  }
+
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(-180deg);
+  }
+
+  .text {
+    button {
+      display: none;
+    }
   }
 }
 

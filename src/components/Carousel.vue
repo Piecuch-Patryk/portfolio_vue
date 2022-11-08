@@ -7,15 +7,30 @@
             <h4>NASA API</h4>
           </div>
         </div>
-        <div class="item b">B</div>
-        <div class="item c">C</div>
-        <div class="item d">D</div>
+        <div class="item b">
+          Single page web application with dynamic components connected to NASA API. 
+        </div>
+        <div class="item c">
+          <h3>Technologies</h3>
+          <ul>
+            <li>Vue</li>
+            <li>SCSS</li>
+          </ul>
+        </div>
+        <div class="item d">
+          <a href="https://devpat.online/projects/spacer" target="_blank">
+            <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
+          </a>
+          <a href="https://github.com/Piecuch-Patryk/spacer" target="_blank">
+            <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
+          </a>
+        </div>
         <div class="item e">E</div>
         <div class="item f">F</div>
     </div>
-    </div>
-    <button @click="rotate('prev')" class="prev"><i class="fa-solid fa-circle-chevron-left"></i></button>
-    <button @click="rotate('next')" class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+  </div>
+  <button @click="rotate('prev')" class="prev"><i class="fa-solid fa-circle-chevron-left"></i></button>
+  <button @click="rotate('next')" class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
 </template>
 
 <script>
@@ -137,6 +152,6 @@ export default {
     border-color: #ddd;
   }
 }
-.next { right: -2rem; }
-.prev { left: -2rem; }
+.next { right: 0; }
+.prev { left: 0; }
 </style>

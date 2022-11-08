@@ -67,16 +67,21 @@
     <div class="wrapper">
       <Carousel />
     </div>
+    <div class="wrapper">
+      <BusinessCard />
+    </div>
   </main>
 </template>
 
 <script>
 import Carousel from '@/components/Carousel.vue';
+import BusinessCard from '@/components/BusinessCard.vue';
 
 export default {
   name: 'Main',
   components: {
     Carousel,
+    BusinessCard,
   },
   methods: {
     cubeInit() {

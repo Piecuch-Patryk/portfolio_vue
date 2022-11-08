@@ -19,7 +19,7 @@
           </ul>
         </div>
         <div class="item d">
-          <a href="https://devpat.online/projects/spacer" target="_blank">
+          <a href="https://devpat.online/projects/spacer/index.html" target="_blank">
             <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
           </a>
           <a href="https://github.com/Piecuch-Patryk/spacer" target="_blank">

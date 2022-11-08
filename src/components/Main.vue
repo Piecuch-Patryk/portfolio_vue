@@ -118,9 +118,12 @@ main {
     display: flex;
     flex-flow: column-reverse;
     position: relative;
-
+    
     &:nth-of-type(2) {
-      margin-top: 10rem;
+      margin-top: 17rem;
+    }
+    &:nth-of-type(3) {
+      margin-top: 12rem;
     }
   }
 }

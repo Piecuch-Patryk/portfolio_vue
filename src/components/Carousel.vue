@@ -8,12 +8,13 @@
           </div>
         </div>
         <div class="item b">
-          Single page web application with dynamic components connected to NASA API. 
+          <p>Single page web application connected to NASA API. User can search for space-related images.</p>
         </div>
         <div class="item c">
           <h3>Technologies</h3>
           <ul>
             <li>Vue</li>
+            <li>External API</li>
             <li>SCSS</li>
           </ul>
         </div>
@@ -25,8 +26,12 @@
             <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
           </a>
         </div>
-        <div class="item e">E</div>
-        <div class="item f">F</div>
+        <div class="item e">
+          <img src="@/assets/spacer/responsive_devices.png" alt="Responsive design displayed on different devices.">
+        </div>
+        <div class="item f">
+          <img src="@/assets/spacer/spacer.gif" alt="Spacer - website displayed as a gif.">
+        </div>
     </div>
   </div>
   <button @click="rotate('prev')" class="prev"><i class="fa-solid fa-circle-chevron-left"></i></button>
@@ -110,23 +115,55 @@ export default {
 }
 .b {
   transform: rotateY(60deg) translateZ(160px);
-  background: #0072bc;
+  background: rgba(200,200,200,.95);
+  color: #333;
 }
 .c {
   transform: rotateY(120deg) translateZ(160px);
-  background: #39b54a;
+  background: rgba(57, 181, 74,.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    margin-bottom: .5rem;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: .2rem;
+    }
+  }
 }
 .d {
   transform: rotateY(180deg) translateZ(160px);
-  background: #f26522;
+  background: rgba(10,10,10,.95);
+
+  a {
+    font-size: 3rem;
+    margin: 0 .5rem;
+    color: #ddd;
+  }
 }
 .e {
   transform: rotateY(240deg) translateZ(160px);
-  background: #630460;
+  background-color: rgba(200,200,200,.95);
+
+  img {
+    width: 100%;
+  }
 } 
 .f {
   transform: rotateY(300deg) translateZ(160px);
-  background: #8c6239;
+  // background-color: rgba(200,200,200,.95);
+  background-color: #fff;
+  padding: .5rem;
+
+  img {
+    width: 100%;
+  }
 }
 
 .next, .prev {

@@ -104,16 +104,6 @@ img {
     width: 75%;
     margin: 0 auto 5rem;
   }
-
-  .flip-box:hover .flip-box-inner {
-    transform: rotateY(-180deg);
-  }
-
-  .text {
-    button {
-      display: none;
-    }
-  }
 }
 
 @media (min-width: 768px) {

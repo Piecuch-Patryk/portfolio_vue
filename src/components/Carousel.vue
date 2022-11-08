@@ -157,7 +157,6 @@ export default {
 } 
 .f {
   transform: rotateY(300deg) translateZ(160px);
-  // background-color: rgba(200,200,200,.95);
   background-color: #fff;
   padding: .5rem;
 
@@ -191,4 +190,75 @@ export default {
 }
 .next { right: 0; }
 .prev { left: 0; }
+
+@media (min-width: 768px) {
+  .container {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+  }
+
+  .item {
+    width: 250px;
+    height: 250px;
+  }
+
+  .a {
+    transform: rotateY(0deg) translateZ(250px);
+  }
+  .b {
+    transform: rotateY(60deg) translateZ(250px);
+  }
+  .c {
+    transform: rotateY(120deg) translateZ(250px);
+  }
+  .d {
+    transform: rotateY(180deg) translateZ(250px);
+  }
+  .e {
+    transform: rotateY(240deg) translateZ(250px);
+  } 
+  .f {
+    transform: rotateY(300deg) translateZ(250px);
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 320px;
+    height: 320px;
+    perspective: 1400px;
+  }
+
+  .item {
+    width: 320px;
+    height: 320px;
+  }
+
+  .a {
+    transform: rotateY(0deg) translateZ(320px);
+  }
+  .b {
+    transform: rotateY(60deg) translateZ(320px);
+  }
+  .c {
+    transform: rotateY(120deg) translateZ(320px);
+  }
+  .d {
+    transform: rotateY(180deg) translateZ(320px);
+  }
+  .e {
+    transform: rotateY(240deg) translateZ(320px);
+  } 
+  .f {
+    transform: rotateY(300deg) translateZ(320px);
+  }
+  .next { 
+    right: 15%;
+    font-size: 2rem;
+  }
+  .prev {
+    left: 15%;
+    font-size: 2rem;
+  }
+}
 </style>

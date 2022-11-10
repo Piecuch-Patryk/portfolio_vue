@@ -1,5 +1,5 @@
 <template>
-  <div class="flip-box">
+  <div class="flip-box fade-in">
     <div class="flip-box-inner" :style="reverse ? 'transform: rotateY(-180deg)' : ''">
       <div class="flip-box-front">
         <img src="@/assets/business_card/Front.png" alt="">
@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div class="text">
+  <div class="text fade-in">
     <h3>Business Card</h3>      
     <h4>Car Mechanic Design</h4>
     <p>Made from scratch in Figma App. Project and design created by myself.</p>

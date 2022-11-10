@@ -1,12 +1,12 @@
 <template>
   <div class="hangman">
-    <div class="text-wrap">
+    <div class="text-wrap fade-in">
       <h3>Hangman Game</h3>
       <p>Single page, fully responsive JavaScript game build with Vue 3. Choose a category and difficulty level and let the game begin.</p>
       <p>Take a chance and don't hang yourself.</p>
       <a href="http://devpat.online/projects/hangman" target="_blank">Let's PLAY</a>
     </div>
-    <div>
+    <div class="fade-in">
       <img src="@/assets/hangman/responsive.png" alt="Responsive game design showed on different devices.">
     </div>
   </div>

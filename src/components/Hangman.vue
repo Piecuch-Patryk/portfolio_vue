@@ -4,7 +4,7 @@
       <h3>Hangman Game</h3>
       <p>Single page, fully responsive JavaScript game build with Vue 3. Choose a category and difficulty level and let the game begin.</p>
       <p>Take a chance and don't hang yourself.</p>
-      <a href="http://devpat.online/projects/hangman" target="_blank">Play Game</a>
+      <a href="https://devpat.online/projects/hangman" target="_blank">Play Game</a>
       |
       <a class="github" href="https://github.com/Piecuch-Patryk/spacer" target="_blank">GitHub</a>
     </div>

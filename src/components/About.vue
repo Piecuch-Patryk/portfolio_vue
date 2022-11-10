@@ -46,8 +46,11 @@ article {
     align-items: center;
     margin: 7rem 0;
 
+    .slide-in {
+      width: 100%;
+    }
+
     img {
-      width: 120%;
       transform:
         perspective(1000px)
         rotateY(10deg);

@@ -1,7 +1,7 @@
 <template>
   <div class="scene__wrap fade-in">
     <div class="scene">
-      <div class="cube">
+      <div class="cube cube__norella">
         <div class="cube__face cube__face--front">
           <div class="text-bg-cover">
             <h4>Norella Beauty Studio</h4>
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="slide-in">
-    <ul class="cube__nav">
+    <ul class="cube__nav cube__nav__norella">
       <li>
         <input id="front" type="radio" name="rotate-cube-side" value="front" checked />
         <label for="front">Norella</label>
@@ -66,6 +66,28 @@
 <script>
 export default {
   name: 'Norella',
+  methods: {
+    cubeInit() {
+      const cube = document.querySelector('.cube__norella');
+      const radioGroup = document.querySelector('.cube__nav__norella');
+      let currentClass = '';
+
+      function changeSide() {
+        const checkedRadio = radioGroup.querySelector(':checked');
+        const showClass = 'show-' + checkedRadio.value;
+        if(currentClass) {
+            cube.classList.remove( currentClass );
+        }
+        cube.classList.add(showClass);
+        currentClass = showClass;
+      }
+
+      radioGroup.addEventListener( 'change', changeSide );
+    },
+  },
+  mounted() {
+    this.cubeInit();
+  },
 }
 </script>
 

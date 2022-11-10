@@ -7,6 +7,9 @@
       <Carousel />
     </div>
     <div class="wrapper">
+      <Hangman />
+    </div>
+    <div class="wrapper">
       <BusinessCard />
     </div>
   </main>
@@ -15,6 +18,7 @@
 <script>
 import Norella from '@/components/Norella.vue';
 import Carousel from '@/components/Carousel.vue';
+import Hangman from '@/components/Hangman.vue';
 import BusinessCard from '@/components/BusinessCard.vue';
 
 export default {
@@ -22,29 +26,8 @@ export default {
   components: {
     Norella,
     Carousel,
+    Hangman,
     BusinessCard,
-  },
-  methods: {
-    cubeInit() {
-      const cube = document.querySelector('.cube');
-      const radioGroup = document.querySelector('.cube__nav');
-      let currentClass = '';
-
-      function changeSide() {
-        const checkedRadio = radioGroup.querySelector(':checked');
-        const showClass = 'show-' + checkedRadio.value;
-        if(currentClass) {
-            cube.classList.remove( currentClass );
-        }
-        cube.classList.add(showClass);
-        currentClass = showClass;
-      }
-
-      radioGroup.addEventListener( 'change', changeSide );
-    },
-  },
-  mounted() {
-    this.cubeInit();
   },
 };
 </script>

@@ -24,19 +24,6 @@ export default {
     getRandomEl(array) {
       return array[Math.floor(Math.random() * array.length)];
     },
-    blinkStar() {
-      const randomEl = this.getRandomEl(this.$refs.star);
-      randomEl.style.transform = 'scale(4)';
-
-      setTimeout(() => {
-        randomEl.style.transform = randomEl.__vnode.props.style.transform;
-        this.blinkStar();
-      }, 1000);
-
-    },
-  },
-  mounted() {
-    this.blinkStar();
   },
 };
 </script>

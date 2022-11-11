@@ -9,7 +9,7 @@
       <a class="github" href="https://github.com/Piecuch-Patryk/spacer" target="_blank">GitHub</a>
     </div>
     <div class="fade-in">
-      <img src="@/assets/hangman/responsive.png" alt="Responsive game design showed on different devices.">
+      <img src="@/assets/hangman/responsive.webp" alt="Responsive game design showed on different devices.">
     </div>
   </div>
 </template>

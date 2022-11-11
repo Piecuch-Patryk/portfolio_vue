@@ -2,10 +2,10 @@
   <div class="flip-box fade-in">
     <div class="flip-box-inner" :style="reverse ? 'transform: rotateY(-180deg)' : ''">
       <div class="flip-box-front">
-        <img src="@/assets/business_card/Front.png" alt="">
+        <img src="@/assets/business_card/Front.webp" alt="">
       </div>
       <div class="flip-box-back">
-        <img src="@/assets/business_card/Back.png" alt="">
+        <img src="@/assets/business_card/Back.webp" alt="">
       </div>
     </div>
   </div>

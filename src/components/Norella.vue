@@ -159,7 +159,7 @@ export default {
 }
 
 .cube__face--front  {
-  background-image: url("@/assets/norella/norella-offers.png");
+  background-image: url("@/assets/norella/norella-offers.webp");
   background-size: cover;
 }
 .cube__face--back  {
@@ -202,7 +202,7 @@ export default {
   }
 }
 .cube__face--top  {
-  background-image: url("@/assets/norella/norella.png");
+  background-image: url("@/assets/norella/norella.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0 50%;

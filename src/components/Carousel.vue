@@ -27,7 +27,7 @@
           </a>
         </div>
         <div class="item e">
-          <img src="@/assets/spacer/responsive_devices.png" alt="Responsive design displayed on different devices.">
+          <img src="@/assets/spacer/responsive_devices.webp" alt="Responsive design displayed on different devices.">
         </div>
         <div class="item f">
           <video 
@@ -98,7 +98,7 @@ export default {
 
 .a {
   transform: rotateY(0deg) translateZ(160px);
-  background-image: url('@/assets/spacer/main.png');
+  background-image: url('@/assets/spacer/main.webp');
   background-size: cover;
   background-position: center;
   z-index: -1;

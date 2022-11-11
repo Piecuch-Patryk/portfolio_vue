@@ -29,7 +29,15 @@
           </a>
         </div>
         <div class="cube__face cube__face--top"></div>
-        <div class="cube__face cube__face--bottom"></div>
+        <div class="cube__face cube__face--bottom">
+          <video 
+            src="@/assets/norella/Norella-main-page.mp4"
+            loop
+            autoplay
+            muted
+            preload="auto"
+          ></video>
+        </div>
       </div>
     </div>
   </div>
@@ -202,13 +210,14 @@ export default {
   transition: background-color .2s ease-in-out;
 }
 .cube__face--bottom  {
-  background-image: url("@/assets/norella/Norella-main-page.gif");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 90%;
+  display: flex;
   background-color: rgba(63,94,251,.9);
   transition: background-size .2s ease-in-out, background-color .2s ease-in-out;
+
+  video {
+    width: 90%;
+    margin: auto;
+  }
 }
 .cube__face--top:hover {
   background-color:rgba(83, 76, 230, .9);

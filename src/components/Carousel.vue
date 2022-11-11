@@ -30,7 +30,13 @@
           <img src="@/assets/spacer/responsive_devices.png" alt="Responsive design displayed on different devices.">
         </div>
         <div class="item f">
-          <img src="@/assets/spacer/spacer.gif" alt="Spacer - website displayed as a gif.">
+          <video 
+            src="@/assets/spacer/spacer.mp4"
+            loop
+            autoplay
+            muted
+            preload="auto"
+          ></video>
         </div>
     </div>
   </div>

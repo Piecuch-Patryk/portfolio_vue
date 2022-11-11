@@ -43,8 +43,8 @@ a {
   min-width: 7rem;
   height: 2.25rem;
   text-decoration: none;
-  color: #ddd;
-  background-color: rgba(5,121,246,1);
+  color: #fff;
+  background-color: rgb(0, 72, 149);
   font-size: 1.25rem;
   text-align: center;
   border-radius: 1rem;

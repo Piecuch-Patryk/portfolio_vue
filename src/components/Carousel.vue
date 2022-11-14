@@ -40,8 +40,9 @@
         </div>
     </div>
   </div>
-  <button @click="rotate('prev')" class="prev"><i class="fa-solid fa-circle-chevron-left"></i></button>
-  <button @click="rotate('next')" class="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+  
+  <button @click="rotate('prev')" class="prev"><font-awesome-icon :icon="['fa-solid', 'fa-circle-left']"></font-awesome-icon></button>
+  <button @click="rotate('next')" class="next"><font-awesome-icon :icon="['fa-solid', 'fa-circle-right']"></font-awesome-icon></button>
 </template>
 
 <script>
@@ -166,7 +167,7 @@ export default {
   background-color: #fff;
   padding: .5rem;
 
-  img {
+  video {
     width: 100%;
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <main>
     <div class="wrapper">
+      <Restaurant />
+    </div>
+    <div class="wrapper">
       <Norella />
     </div>
     <div class="wrapper">
@@ -9,13 +12,14 @@
     <div class="wrapper">
       <Hangman />
     </div>
-    <div class="wrapper">
-      <BusinessCard />
-    </div>
+    <!-- <div class="wrapper"> -->
+      <!-- <BusinessCard /> -->
+    <!-- </div> -->
   </main>
 </template>
 
 <script>
+import Restaurant from '@/components/Restaurant.vue';
 import Norella from '@/components/Norella.vue';
 import Carousel from '@/components/Carousel.vue';
 import Hangman from '@/components/Hangman.vue';
@@ -24,6 +28,7 @@ import BusinessCard from '@/components/BusinessCard.vue';
 export default {
   name: 'Main',
   components: {
+    Restaurant,
     Norella,
     Carousel,
     Hangman,
@@ -44,9 +49,12 @@ main {
     position: relative;
     
     &:nth-of-type(2) {
-      margin-top: 17rem;
+      margin-top: 8rem;
     }
     &:nth-of-type(3) {
+      margin-top: 17rem;
+    }
+    &:nth-of-type(4) {
       margin-top: 12rem;
     }
   }

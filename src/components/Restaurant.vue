@@ -5,7 +5,7 @@
         <div>
           <h3>Chef Goods</h3>
           <h4 class="subtitle">(under development)</h4>
-          <p>Restaurant's website build with Laravel and VueJS. The backend shares data through the RestAPI and Vue consume it to display to user. Customer can book a table, browse menu and add review. Relational database helps to manage and display products, categories and table booking.</p>
+          <p>Restaurant's website build with Laravel and VueJs. The backend shares data through the RestAPI and Vue consume it to display to user. Customer can book a table, browse menu and add review. Relational database helps to manage and display products, categories and table booking.</p>
           <p>The website's still under development and some features aren't available yet.</p>
         </div>
       </div>
@@ -35,13 +35,22 @@
         </div>
       </div>
       <div v-if="(i === 2)" class="video">
-        <video 
-            src="@/assets/chefgoods/mainpage.mp4"
-            loop
-            autoplay
-            muted
-            preload="auto"
-          ></video>
+        <video
+          v-show="(breakpoints.sm.matches || breakpoints.xs.matches)"
+          :src="require(`@/assets/chefgoods/mainpage_${videoSize}.mp4`)"
+          loop
+          autoplay
+          muted
+          preload="auto"
+        ></video>
+        <video
+          v-show="breakpoints.md.matches"
+          :src="require(`@/assets/chefgoods/mainpage_md.mp4`)"
+          loop
+          autoplay
+          muted
+          preload="auto"
+        ></video>
       </div>
     </slide>
   </carousel-3d>
@@ -61,6 +70,7 @@ export default {
       md: 300,
       lg: 450,
       xl: 550,
+      videoSize: 'sm',
     }
   },
   setup() {
@@ -114,6 +124,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       padding: .5rem;
+      cursor: pointer;
 
       h3 {
         font-size: 1.4rem;
@@ -136,6 +147,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       padding: .5rem;
+      cursor: pointer;
 
       div {
         margin: 1rem 0;
@@ -169,8 +181,54 @@ export default {
       background: none;
     }
     .video {
+      cursor: pointer;
+
       video {
         width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-3d-slider {
+
+    .carousel-3d-slide {
+      .description {
+        font-size: 1.2rem;
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.8rem;
+        }
+        h4 {
+          margin-bottom: .8rem;
+        }
+        .subtitle {
+          font-size: 1rem;
+        }
+      }
+      
+      .links {
+        padding: 1rem;
+
+        .technologies-list {
+          li {
+            font-size: 1.2rem;
+          }
+        }
+        h5 {
+          font-size: 1.8rem;
+          margin: 1rem 0;
+        }
+        .links-list {
+          font-size: 2.5rem;
+        }
+      }
+      .video {
+        video {
+          width: auto;
+        }
       }
     }
   }

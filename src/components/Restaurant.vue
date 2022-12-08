@@ -1,5 +1,5 @@
 <template>
-  <carousel-3d :width="width" :height="450">
+  <carousel-3d :width="width" :height="400">
     <slide v-for="(slide, i) in slides" :index="i" :key="i" :class="(i === 2) ? 'video-wrapper' : ''">
       <div v-if="(i === 0)" class="description">
         <div>
@@ -48,25 +48,52 @@
 </template>
 
 <script>
+import useBreakpoints from "vue-next-breakpoints";
+
 export default {
   name: 'Restaurant',
   data() {
     return {
       slides: 3,
-      width: 200,
+      width: this.xs,
+      xs: 150,
+      sm: 200,
+      md: 300,
+      lg: 450,
+      xl: 550,
     }
   },
-  methods: {
-    handleResize() {
-      if(window.innerWidth <= 576) return this.width = 200 
-      if(window.innerWidth >= 578) return this.width = 400 
-      if(window.innerWidth >= 769) return this.width = 500 
-      console.log(window.innerWidth)
-    }
+  setup() {
+    const breakpoints = useBreakpoints({
+      xs: 350,
+      sm: [400],
+      md: [768],
+      lg: [992],
+      xl: [1200],
+    });
+    return {
+      breakpoints
+    };
+  },
+  created() {
+    this.breakpoints.xs.on("enter", (mq) => this.width = this.xs)
+    this.breakpoints.sm.on("enter", (mq) => this.width = this.sm)
+    this.breakpoints.md.on("enter", (mq) => this.width = this.md)
+    this.breakpoints.lg.on("enter", (mq) => this.width = this.lg)
+    this.breakpoints.xl.on("enter", (mq) => this.width = this.xl)
+
+    this.breakpoints.xs.on("leave", (mq) => this.width = this.xs)
+    this.breakpoints.sm.on("leave", (mq) => this.width = this.sm)
+    this.breakpoints.md.on("leave", (mq) => this.width = this.md)
+    this.breakpoints.lg.on("leave", (mq) => this.width = this.lg)
+    this.breakpoints.xl.on("leave", (mq) => this.width = this.xl)
   },
   mounted() {
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize();
+    if (this.breakpoints.sm.matches) this.width = this.sm
+    if (this.breakpoints.md.matches) this.width = this.md
+    if (this.breakpoints.lg.matches) this.width = this.lg
+    if (this.breakpoints.xl.matches) this.width = this.xl
+
   }
 }
 </script>

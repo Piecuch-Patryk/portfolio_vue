@@ -37,9 +37,11 @@
         </div>
         <div class="cube__face cube__face--3">
           <p>
-            Commercial project, designed and build from scratch with Vue3.
+            Commercial project, designed and build from scratch with Laravel 9.
           </p>
-          <button class="btn">Read more</button>
+          <div>
+            <button @click="this.modalActive = true" class="btn">Read more</button>
+          </div>
         </div>
         <div class="cube__face cube__face--2">
           <h4>Technologies</h4>
@@ -72,33 +74,105 @@
     </div>
   </div>
 
-  <!-- <div class="modal modal-vag">
-    <div>
-      <button>&times;</button>
-    </div>
-    <div>
+  <div v-show="modalActive" class="modal">
+    <button @click="this.modalActive = false">&times;</button>
+
+    <div class="section">
       <h3>VAG Autoserwis - summary</h3>
     </div>
-    <div>
-      <h4>Clients' requirements</h4>
-      <ol>
+
+    <div class="section">
+      <h4>Description</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus fugit quos vitae aliquam esse. Inventore saepe eum error, nostrum quaerat consequatur cumque laborum quibusdam! Minima quo tenetur id animi amet!</p>
+    </div>
+
+    <div class="section">
+      <h4>Client Requirements</h4>
+      <ul>
         <li>Design the whole app with graphics, content and SEO</li>
         <li>Build the app with suitable technology</li>
         <li>Must be user-friendly and fast loading</li>
+        <li>CRUD - categories, services, products</li>
+        <li>Change categories' order with drag&drop</li>
+        <li>Each category has many products (relational database)</li>
         <li>PDF creator - logged in user can create invoice document</li>
+        <li>Amount is calculated based on the products' price and quantity</li>
         <li>Store documents in database</li>
         <li>Guest can search for a document and download if found</li>
         <li>Documents for guest are encrypted and the customer gets the password to be able to read it</li>
         <li>Documents for logged in user are decrypted</li>
         <li>Contact form sends messages via email</li>
-      </ol>
+        <li>Guests can leave reviews</li>
+      </ul>
     </div>
-  </div> -->
+
+    <div class="section admin">
+      <h4>Admin Panel</h4>
+      <ul>
+        <li>
+          <h5>Manage categories, products and sevices.</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+          <img src="@/assets/vag/category.webp" alt="">
+        </li>
+        <li>
+          <h5>Simply create and manage invoices</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+          <img src="@/assets/vag/create_invoice.webp" alt="">
+        </li>
+        <li>
+          <h5>Browse invoices or search for a specific one</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+          <img src="@/assets/vag/browse_invoice.webp" alt="">
+        </li>
+        <li>
+          <h5>Generate and download invoice</h5>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+          <img src="@/assets/vag/pdf.webp" alt="">
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="inner">
+        <h4>Mobile Performance Tests</h4>
+        <img src="@/assets/vag/test-mobile.webp" alt="mobile website performance tests result">
+      </div>
+      <div class="inner">
+        <h4>Desktop Performance Tests</h4>
+        <img src="@/assets/vag/test-desktop.webp" alt="desktop website performance tests result">
+      </div>
+    </div>
+
+    <div class="section links">
+      <a href="https://devpat.online/projects/vag/public/index.php" target="_blank">
+        <span>
+          <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
+        </span>
+        Website
+      </a>
+      <a href="https://github.com/Piecuch-Patryk/vag-autoservice" target="_blank">
+        <span>
+          <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
+        </span>
+        Github
+      </a>
+    </div>
+
+    <div class="close">
+      <button @click="this.modalActive = false">&times;</button>
+    </div>
+
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Vag',
+  data() {
+    return {
+      modalActive: false,
+    }
+  },
   methods: {
     cubeVagInit() {
       const cube = document.querySelector('.cube__vag');
@@ -109,7 +183,6 @@ export default {
         const checkedRadio = radioGroup.querySelector(':checked');
         const showClass = 'show-' + checkedRadio.value;
 
-        console.log(showClass);
         if(currentClass) {
             cube.classList.remove( currentClass );
         }
@@ -128,9 +201,6 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper.vag {
-  .d-none {
-    display: none;
-  }
   .scene__wrap {
     margin-top: 8rem;
     order: 0;
@@ -176,8 +246,8 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.9) 15%, rgba(252,70,107,0.8) 100%);
+    background: rgba(0,0,0, .9);
+    background: radial-gradient(circle,rgba(0,0,0,0.7) 45%, rgba(144,4,12,0.5) 75%, rgba(227,6,19,0.5) 88%);
     box-shadow: inset 0 0 10px #fff;
     border-radius: 1rem;
     display: flex;
@@ -191,24 +261,40 @@ export default {
   }
 
   .cube__face--1  {
-    background-image: url("@/assets/norella/norella-offers.webp");
+    background-image: url("@/assets/vag/vag-main-lg.webp");
     background-size: cover;
+    box-shadow: inset 0 0 10px #fff;
   }
   .cube__face--3  {
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(144,4,12,0.5) 75%, rgba(227,6,19,0.5) 88%);
     display: flex;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px #fff;
 
     p {
       padding: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      border: none;
+      padding: .5rem 1rem;
+      border-radius: .2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .cube__face--2  {
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.9) 15%, rgba(252,70,107,0.8) 100%);
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(144,4,12,0.5) 75%, rgba(227,6,19,0.5) 88%);
   }
   .cube__face--2 {
+    box-shadow: inset 0 0 10px #fff;
+
     h4 {
       font-size: 1.2rem;
       padding: 1rem;
@@ -222,10 +308,11 @@ export default {
     }
   }
   .cube__face--4  {
-    background-image: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 45%, rgba(144,4,12,0.5) 75%, rgba(227,6,19,0.5) 88%);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: inset 0 0 10px #fff;
 
     a {
       font-size: 3rem;
@@ -238,13 +325,15 @@ export default {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 0 50%;
-    background-color: rgba(63,94,251,.9);
+    background-color: rgba(0,0,0,.9);
     transition: background-color .2s ease-in-out;
+    box-shadow: inset 0 0 10px #fff;
   }
   .cube__face--6  {
     display: flex;
-    background-color: rgba(63,94,251,.9);
+    background-color: rgba(0,0,0,.9);
     transition: background-size .2s ease-in-out, background-color .2s ease-in-out;
+    box-shadow: inset 0 0 10px #fff;
 
     video {
       width: 90%;
@@ -252,11 +341,13 @@ export default {
     }
   }
   .cube__face--5:hover {
-    background-color:rgba(83, 76, 230, .9);
+    background-color: rgb(0,0,0);
+
   }
   .cube__face--6:hover {
     background-size: 95%;
-    background-color:rgba(83, 76, 230, .9);
+    background-color: rgb(0,0,0);
+
   }
   .description {
     padding: .5rem;
@@ -304,6 +395,119 @@ export default {
     transform: 
       scale(1.5)
       translateY(-5%);
+  }
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-height: 90vh;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: .5rem;
+    padding: 1rem;
+    overflow: auto;
+    z-index: 10010;
+
+    .section {
+      margin-bottom: 2rem;
+      letter-spacing: 1.2px;
+      line-height: 1.2;
+      box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
+      padding: .5rem;
+      border-radius: .5rem;
+
+      &.admin {
+        box-shadow: none;
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+          li {
+            margin-bottom: 2rem;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
+            padding: 1rem .5rem;
+          }
+        }
+      }
+
+      &.links {
+        display: flex;
+        justify-content: space-around;
+
+        a {
+          text-align: center;
+          color: #000;
+
+          span {
+            display: block;
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      h4 {
+        margin-bottom: .5rem;
+        font-size: 1.2rem;
+      }
+
+      ul {
+        padding: 1rem;
+
+        li {
+          margin-bottom: .8rem;
+          line-height: 1;
+          font-size: 1rem;
+
+          h5 {
+            font-size: 1rem;
+          }
+
+          p {
+            padding: 1rem 0;
+            line-height: 1.5;
+            letter-spacing: 1.3px;
+          }
+        }
+      }
+
+      .inner {
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      img {
+        width: 100%;
+      }
+    }
+
+    button {
+        position: absolute;
+        top: .5rem;
+        right: 1rem;
+        border: 1px solid #000;
+        border-radius: 100%;
+        width: 2rem;
+        line-height: 2rem;
+        background: none;
+        font-size: 2rem;
+        
+      &:hover {
+        cursor: pointer;
+      }      
+    }
+
+    .close {
+      margin-bottom: 1rem;
+      text-align: center;
+
+      button {
+        position: relative;
+        top: auto;
+        right: auto;
+      }
+    }
   }
 
   @media (min-width: 576px) {
@@ -360,6 +564,10 @@ export default {
 
     .cube__face--3 {
       font-size: 2rem;
+
+      .btn {
+        font-size: 1.5rem;
+      }
     }
     .cube__face--4 {
       a {
@@ -372,12 +580,6 @@ export default {
   }
 
   @media (min-width: 768px) {
-    .d-md-none {
-      display: none;
-    }
-    .d-none {
-      display: block;
-    }
     .cube__nav {
       position: relative;
       z-index: -1;
@@ -388,6 +590,10 @@ export default {
         perspective(600px)
         rotateY(15deg)
         translateX(0);
+    }
+
+    .modal {
+      width: 70%;
     }
   }
 
@@ -458,6 +664,10 @@ export default {
       z-index: 1;
       font-size: 2.5rem;
       margin-right: 15rem;
+    }
+
+    .modal {
+      width: 60%;
     }
   }
 }

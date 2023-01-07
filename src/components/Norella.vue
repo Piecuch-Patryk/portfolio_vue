@@ -100,326 +100,328 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scene__wrap {
-  margin-top: 8rem;
-}
-.scene {
-  width: 200px;
-  height: 200px;
-  perspective: 600px;
-  margin: auto;
-}
-
-.cube {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: translateZ(-110px);
-  transition: transform 1s;
-}
-.cube {
-    transform: translateZ(-110px) rotateY(20deg) rotateX(30deg);
-}
-
-.cube.show-front  { transform: translateZ(-110px) rotateY(   0deg); }
-.cube.show-right  { transform: translateZ(-110px) rotateY( -90deg); }
-.cube.show-back   { transform: translateZ(-110px) rotateY(-180deg); }
-.cube.show-left   { transform: translateZ(-110px) rotateY(  90deg); }
-.cube.show-top    { transform: translateZ(-110px) rotateX( -90deg); }
-.cube.show-bottom { transform: translateZ(-110px) rotateX(  90deg); }
-
-.cube__face {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  color: white;
-  text-align: center;
-  border-radius: 1rem;
-}
-
-.text-bg-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.9) 15%, rgba(252,70,107,0.8) 100%);
-  box-shadow: inset 0 0 10px #fff;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  h4 {
-    font-size: 1.5rem;
-    line-height: 2;
-  }
-}
-
-.cube__face--front  {
-  background-image: url("@/assets/norella/norella-offers.webp");
-  background-size: cover;
-}
-.cube__face--back  {
-  background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
-  display: flex;
-  align-items: center;
-
-  p {
-    padding: .5rem;
-  }
-}
-.cube__face--right  {
-  background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.9) 15%, rgba(252,70,107,0.8) 100%);
-}
-.cube__face--right {
-  h4 {
-    font-size: 1.2rem;
-    padding: 1rem;
-  }
-  ul {
-    list-style: none;
-
-    li {
-      margin-bottom: .2rem;
-    }
-  }
-}
-.cube__face--left  {
-  background-image: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  a {
-    font-size: 3rem;
-    color: #ddd;
-    margin: 0 1rem;
-  }
-}
-.cube__face--top  {
-  background-image: url("@/assets/norella/norella.webp");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  background-color: rgba(63,94,251,.9);
-  transition: background-color .2s ease-in-out;
-}
-.cube__face--bottom  {
-  display: flex;
-  background-color: rgba(63,94,251,.9);
-  transition: background-size .2s ease-in-out, background-color .2s ease-in-out;
-
-  video {
-    width: 90%;
-    margin: auto;
-  }
-}
-.cube__face--top:hover {
-  background-color:rgba(83, 76, 230, .9);
-}
-.cube__face--bottom:hover {
-  background-size: 95%;
-  background-color:rgba(83, 76, 230, .9);
-}
-.description {
-  padding: .5rem;
-}
-
-.cube__face--front  { transform: rotateY(  0deg) translateZ(110px); }
-.cube__face--right  { transform: rotateY( 90deg) translateZ(110px); }
-.cube__face--back   { transform: rotateY(180deg) translateZ(110px); }
-.cube__face--left   { transform: rotateY(-90deg) translateZ(110px); }
-.cube__face--top    { transform: rotateX( 90deg) translateZ(110px); }
-.cube__face--bottom { transform: rotateX(-90deg) translateZ(110px); }
-
-input {
-  display: none;
-}
-.cube__nav {
-  width: 75%;
-  list-style-type: none;
-  margin: auto;
-  font-size: 1.2rem;
-  padding: 1rem 2rem;
-  background-color: rgba(255,255,255,.9);
-  box-shadow:
-  rgba(255, 255, 255, 0.42) 0px 60px 123px -25px,
-  rgba(255, 255, 255, 0.08) 0px 35px 75px -35px;
-  border-radius: 10px;
-}
-.cube__nav li {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.cube__nav li label {
-  display: block;
-  transition: transform .2s ease-in-out;
-  color: #333;
-    
-}
-.cube__nav li label:hover {
-  cursor: pointer;
-  transform: 
-    scale(1.2)
-    translateY(-5%);
-}
-.cube__nav li input:checked + label {
-  transform: 
-    scale(1.5)
-    translateY(-5%);
-}
-
-@media (min-width: 576px) {
-  .text-bg-cover {
-    h4 {
-      font-size: 3rem;
-    }
+.wrapper.norella {
+  .scene__wrap {
+    margin-top: 8rem;
   }
   .scene {
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
     margin: auto;
-    width: 400px;
-    height: 400px;
-  }
-  .cube {
-    width: 400px;
-    height: 400px;
-    transform: translateZ(-220px);
-  }
-  .cube {
-      transform: translateZ(-220px) rotateY(20deg) rotateX(30deg);
   }
 
-  .cube.show-front  { transform: translateZ(-220px) rotateY(   0deg); }
-  .cube.show-right  { transform: translateZ(-220px) rotateY( -90deg); }
-  .cube.show-back   { transform: translateZ(-220px) rotateY(-180deg); }
-  .cube.show-left   { transform: translateZ(-220px) rotateY(  90deg); }
-  .cube.show-top    { transform: translateZ(-220px) rotateX( -90deg); }
-  .cube.show-bottom { transform: translateZ(-220px) rotateX(  90deg); }
+  .cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-110px);
+    transition: transform 1s;
+  }
+  .cube {
+      transform: translateZ(-110px) rotateY(20deg) rotateX(30deg);
+  }
+
+  .cube.show-front  { transform: translateZ(-110px) rotateY(   0deg); }
+  .cube.show-right  { transform: translateZ(-110px) rotateY( -90deg); }
+  .cube.show-back   { transform: translateZ(-110px) rotateY(-180deg); }
+  .cube.show-left   { transform: translateZ(-110px) rotateY(  90deg); }
+  .cube.show-top    { transform: translateZ(-110px) rotateX( -90deg); }
+  .cube.show-bottom { transform: translateZ(-110px) rotateX(  90deg); }
 
   .cube__face {
-    width: 400px;
-    height: 400px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    color: white;
+    text-align: center;
+    border-radius: 1rem;
   }
 
-  .cube__face--front  { transform: rotateY(  0deg) translateZ(220px); }
-  .cube__face--right  { transform: rotateY( 90deg) translateZ(220px); }
-  .cube__face--back   { transform: rotateY(180deg) translateZ(220px); }
-  .cube__face--left   { transform: rotateY(-90deg) translateZ(220px); }
-  .cube__face--top    { transform: rotateX( 90deg) translateZ(220px); }
-  .cube__face--bottom { transform: rotateX(-90deg) translateZ(220px); }
-
-  .cube__face--right {
+  .text-bg-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.9) 15%, rgba(252,70,107,0.8) 100%);
+    box-shadow: inset 0 0 10px #fff;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
 
     h4 {
-      display: none;
+      font-size: 1.5rem;
+      line-height: 2;
     }
-    li {
+  }
+
+  .cube__face--front  {
+    background-image: url("@/assets/norella/norella-offers.webp");
+    background-size: cover;
+  }
+  .cube__face--back  {
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
+    display: flex;
+    align-items: center;
+
+    p {
+      padding: .5rem;
+    }
+  }
+  .cube__face--right  {
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.9) 15%, rgba(252,70,107,0.8) 100%);
+  }
+  .cube__face--right {
+    h4 {
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: .2rem;
+      }
+    }
+  }
+  .cube__face--left  {
+    background-image: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(63,94,251,0.95) 30%, rgba(252,70,107,0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      font-size: 3rem;
+      color: #ddd;
+      margin: 0 1rem;
+    }
+  }
+  .cube__face--top  {
+    background-image: url("@/assets/norella/norella.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-color: rgba(63,94,251,.9);
+    transition: background-color .2s ease-in-out;
+  }
+  .cube__face--bottom  {
+    display: flex;
+    background-color: rgba(63,94,251,.9);
+    transition: background-size .2s ease-in-out, background-color .2s ease-in-out;
+
+    video {
+      width: 90%;
+      margin: auto;
+    }
+  }
+  .cube__face--top:hover {
+    background-color:rgba(83, 76, 230, .9);
+  }
+  .cube__face--bottom:hover {
+    background-size: 95%;
+    background-color:rgba(83, 76, 230, .9);
+  }
+  .description {
+    padding: .5rem;
+  }
+
+  .cube__face--front  { transform: rotateY(  0deg) translateZ(110px); }
+  .cube__face--right  { transform: rotateY( 90deg) translateZ(110px); }
+  .cube__face--back   { transform: rotateY(180deg) translateZ(110px); }
+  .cube__face--left   { transform: rotateY(-90deg) translateZ(110px); }
+  .cube__face--top    { transform: rotateX( 90deg) translateZ(110px); }
+  .cube__face--bottom { transform: rotateX(-90deg) translateZ(110px); }
+
+  input {
+    display: none;
+  }
+  .cube__nav {
+    width: 75%;
+    list-style-type: none;
+    margin: auto;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    background-color: rgba(255,255,255,.9);
+    box-shadow:
+    rgba(255, 255, 255, 0.42) 0px 60px 123px -25px,
+    rgba(255, 255, 255, 0.08) 0px 35px 75px -35px;
+    border-radius: 10px;
+  }
+  .cube__nav li {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .cube__nav li label {
+    display: block;
+    transition: transform .2s ease-in-out;
+    color: #333;
+      
+  }
+  .cube__nav li label:hover {
+    cursor: pointer;
+    transform: 
+      scale(1.2)
+      translateY(-5%);
+  }
+  .cube__nav li input:checked + label {
+    transform: 
+      scale(1.5)
+      translateY(-5%);
+  }
+
+  @media (min-width: 576px) {
+    .text-bg-cover {
+      h4 {
+        font-size: 3rem;
+      }
+    }
+    .scene {
+      margin: auto;
+      width: 400px;
+      height: 400px;
+    }
+    .cube {
+      width: 400px;
+      height: 400px;
+      transform: translateZ(-220px);
+    }
+    .cube {
+        transform: translateZ(-220px) rotateY(20deg) rotateX(30deg);
+    }
+
+    .cube.show-front  { transform: translateZ(-220px) rotateY(   0deg); }
+    .cube.show-right  { transform: translateZ(-220px) rotateY( -90deg); }
+    .cube.show-back   { transform: translateZ(-220px) rotateY(-180deg); }
+    .cube.show-left   { transform: translateZ(-220px) rotateY(  90deg); }
+    .cube.show-top    { transform: translateZ(-220px) rotateX( -90deg); }
+    .cube.show-bottom { transform: translateZ(-220px) rotateX(  90deg); }
+
+    .cube__face {
+      width: 400px;
+      height: 400px;
+    }
+
+    .cube__face--front  { transform: rotateY(  0deg) translateZ(220px); }
+    .cube__face--right  { transform: rotateY( 90deg) translateZ(220px); }
+    .cube__face--back   { transform: rotateY(180deg) translateZ(220px); }
+    .cube__face--left   { transform: rotateY(-90deg) translateZ(220px); }
+    .cube__face--top    { transform: rotateX( 90deg) translateZ(220px); }
+    .cube__face--bottom { transform: rotateX(-90deg) translateZ(220px); }
+
+    .cube__face--right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        display: none;
+      }
+      li {
+        font-size: 2rem;
+      }
+    }
+
+    .cube__face--back {
+      font-size: 2rem;
+    }
+    .cube__face--left {
+      a {
+        font-size: 6rem;
+      }
+    }
+    .cube__nav {
+      margin-top: 2rem;
       font-size: 2rem;
     }
   }
 
-  .cube__face--back {
-    font-size: 2rem;
-  }
-  .cube__face--left {
-    a {
-      font-size: 6rem;
+  @media (min-width: 768px) {
+    .cube__nav {
+      position: relative;
+      z-index: -1;
+      padding: 2rem 4rem;
+      margin-top: 2rem;
+      font-size: 2rem;
+      width: auto;
+      transform:
+        perspective(600px)
+        rotateY(-15deg)
+        translateX(0);
     }
   }
-  .cube__nav {
-    margin-top: 2rem;
-    font-size: 2rem;
-  }
-}
 
-@media (min-width: 768px) {
-  .cube__nav {
-    position: relative;
-    z-index: -1;
-    padding: 2rem 4rem;
-    margin-top: 2rem;
-    font-size: 2rem;
-    width: auto;
-    transform:
-      perspective(600px)
-      rotateY(-15deg)
-      translateX(0);
+  @media (min-width: 992px) {
+    .cube__nav {
+      transform:
+        perspective(1000px)
+        rotateY(-10deg)
+        translateX(0);
+    }
   }
-}
 
-@media (min-width: 992px) {
-  .cube__nav {
-    transform:
-      perspective(1000px)
-      rotateY(-10deg)
-      translateX(0);
-  }
-}
+  @media (min-width: 1200px) {
+    .text-bg-cover {
+      h4 {
+        font-size: 3rem;
+      }
+    }
+    .scene {
+      width: 550px;
+      height: 550px;
+    }
+    .cube {
+      width: 550px;
+      height: 550px;
+      transform: translateZ(-320px);
+    }
+    .cube {
+        transform: translateZ(-320px) rotateY(20deg) rotateX(30deg);
+    }
 
-@media (min-width: 1200px) {
-  .text-bg-cover {
-    h4 {
+    .cube.show-front  { transform: translateZ(-320px) rotateY(   0deg); }
+    .cube.show-right  { transform: translateZ(-320px) rotateY( -90deg); }
+    .cube.show-back   { transform: translateZ(-320px) rotateY(-180deg); }
+    .cube.show-left   { transform: translateZ(-320px) rotateY(  90deg); }
+    .cube.show-top    { transform: translateZ(-320px) rotateX( -90deg); }
+    .cube.show-bottom { transform: translateZ(-320px) rotateX(  90deg); }
+
+    .cube__face {
+      width: 550px;
+      height: 550px;
+    }
+
+    .cube__face--front  { transform: rotateY(  0deg) translateZ(320px); }
+    .cube__face--right  { transform: rotateY( 90deg) translateZ(320px); }
+    .cube__face--back   { transform: rotateY(180deg) translateZ(320px); }
+    .cube__face--left   { transform: rotateY(-90deg) translateZ(320px); }
+    .cube__face--top    { transform: rotateX( 90deg) translateZ(320px); }
+    .cube__face--bottom { transform: rotateX(-90deg) translateZ(320px); }
+
+    .cube__face--right {
+
+      li {
+        font-size: 3rem;
+      }
+    }
+
+    .cube__face--back {
       font-size: 3rem;
     }
-  }
-  .scene {
-    width: 550px;
-    height: 550px;
-  }
-  .cube {
-    width: 550px;
-    height: 550px;
-    transform: translateZ(-320px);
-  }
-  .cube {
-      transform: translateZ(-320px) rotateY(20deg) rotateX(30deg);
-  }
-
-  .cube.show-front  { transform: translateZ(-320px) rotateY(   0deg); }
-  .cube.show-right  { transform: translateZ(-320px) rotateY( -90deg); }
-  .cube.show-back   { transform: translateZ(-320px) rotateY(-180deg); }
-  .cube.show-left   { transform: translateZ(-320px) rotateY(  90deg); }
-  .cube.show-top    { transform: translateZ(-320px) rotateX( -90deg); }
-  .cube.show-bottom { transform: translateZ(-320px) rotateX(  90deg); }
-
-  .cube__face {
-    width: 550px;
-    height: 550px;
-  }
-
-  .cube__face--front  { transform: rotateY(  0deg) translateZ(320px); }
-  .cube__face--right  { transform: rotateY( 90deg) translateZ(320px); }
-  .cube__face--back   { transform: rotateY(180deg) translateZ(320px); }
-  .cube__face--left   { transform: rotateY(-90deg) translateZ(320px); }
-  .cube__face--top    { transform: rotateX( 90deg) translateZ(320px); }
-  .cube__face--bottom { transform: rotateX(-90deg) translateZ(320px); }
-
-  .cube__face--right {
-
-    li {
-      font-size: 3rem;
+    .cube__face--left {
+      a {
+        font-size: 8rem;
+      }
     }
-  }
-
-  .cube__face--back {
-    font-size: 3rem;
-  }
-  .cube__face--left {
-    a {
-      font-size: 8rem;
+    .cube__nav {
+      z-index: 1;
+      font-size: 2.5rem;
     }
-  }
-  .cube__nav {
-    z-index: 1;
-    font-size: 2.5rem;
   }
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <main>
-    <div class="wrapper">
-      <Restaurant />
+    <div class="wrapper vag">
+      <Vag />
     </div>
-    <div class="wrapper">
+    <div class="wrapper norella">
       <Norella />
     </div>
     <div class="wrapper">
@@ -12,27 +12,22 @@
     <div class="wrapper">
       <Hangman />
     </div>
-    <!-- <div class="wrapper"> -->
-      <!-- <BusinessCard /> -->
-    <!-- </div> -->
   </main>
 </template>
 
 <script>
-import Restaurant from '@/components/Restaurant.vue';
+import Vag from '@/components/Vag.vue';
 import Norella from '@/components/Norella.vue';
 import Carousel from '@/components/Carousel.vue';
 import Hangman from '@/components/Hangman.vue';
-import BusinessCard from '@/components/BusinessCard.vue';
 
 export default {
   name: 'Main',
   components: {
-    Restaurant,
+    Vag,
     Norella,
     Carousel,
     Hangman,
-    BusinessCard,
   },
 };
 </script>
@@ -48,6 +43,10 @@ main {
     flex-flow: column-reverse;
     position: relative;
     
+    &.vag {
+      flex-flow: column;
+    }
+
     &:nth-of-type(2) {
       margin-top: 8rem;
     }
@@ -67,6 +66,29 @@ main {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+
+      &.vag {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    .wrapper {
+      &:nth-of-type(1) {
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+@media (min-width: 1400px) {
+  main {
+    .wrapper {
+      &:nth-of-type(1) {
+        padding-left: 8rem;
+      }
     }
   }
 }

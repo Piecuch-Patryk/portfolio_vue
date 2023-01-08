@@ -670,7 +670,7 @@ export default {
     .cube__nav {
       z-index: 1;
       font-size: 2.5rem;
-      margin-right: 15rem;
+      margin-right: 10rem;
     }
 
     .modal {

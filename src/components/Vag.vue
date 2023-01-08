@@ -63,7 +63,7 @@
         <div class="cube__face cube__face--5"></div>
         <div class="cube__face cube__face--6">
           <video 
-            src="@/assets/norella/Norella-main-page.mp4"
+            src="@/assets/vag/main-video.mp4"
             loop
             autoplay
             muted
@@ -321,10 +321,10 @@ export default {
     }
   }
   .cube__face--5  {
-    background-image: url("@/assets/norella/norella.webp");
-    background-size: contain;
+    background-image: url("@/assets/vag/responsive.png");
+    background-size: 80%;
     background-repeat: no-repeat;
-    background-position: 0 50%;
+    background-position: 50% 50%;
     background-color: rgba(0,0,0,.9);
     transition: background-color .2s ease-in-out;
     box-shadow: inset 0 0 10px #fff;

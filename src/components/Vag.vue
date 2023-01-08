@@ -127,7 +127,7 @@
         <li>
           <h5>Generate and download invoice</h5>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-          <img src="@/assets/vag/pdf.webp" alt="">
+          <img src="@/assets/vag/pdf.webp" alt="" class="img-pdf">
         </li>
       </ul>
     </div>
@@ -414,7 +414,6 @@ export default {
       margin-bottom: 2rem;
       letter-spacing: 1.2px;
       line-height: 1.2;
-      box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
       padding: .5rem;
       border-radius: .5rem;
 
@@ -426,7 +425,6 @@ export default {
           padding: 0;
           li {
             margin-bottom: 2rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
             padding: 1rem .5rem;
           }
         }
@@ -479,6 +477,7 @@ export default {
       
       img {
         width: 100%;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
       }
     }
 
@@ -668,6 +667,17 @@ export default {
 
     .modal {
       width: 60%;
+      padding: 2rem;
+      max-width: 1000px;
+
+      .section {
+        margin-bottom: 2rem;
+        .inner {
+          width: 50%;
+          margin: 1rem auto;
+        }
+      }
+
     }
   }
 }

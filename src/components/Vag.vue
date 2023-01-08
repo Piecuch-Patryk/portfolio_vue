@@ -74,95 +74,97 @@
     </div>
   </div>
 
-  <div v-show="modalActive" class="modal">
-    <button @click="this.modalActive = false">&times;</button>
-
-    <div class="section">
-      <h3>VAG Autoserwis - summary</h3>
-    </div>
-
-    <div class="section">
-      <h4>Description</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus fugit quos vitae aliquam esse. Inventore saepe eum error, nostrum quaerat consequatur cumque laborum quibusdam! Minima quo tenetur id animi amet!</p>
-    </div>
-
-    <div class="section">
-      <h4>Client Requirements</h4>
-      <ul>
-        <li>Design the whole app with graphics, content and SEO</li>
-        <li>Build the app with suitable technology</li>
-        <li>Must be user-friendly and fast loading</li>
-        <li>CRUD - categories, services, products</li>
-        <li>Change categories' order with drag&drop</li>
-        <li>Each category has many products (relational database)</li>
-        <li>PDF creator - logged in user can create invoice document</li>
-        <li>Amount is calculated based on the products' price and quantity</li>
-        <li>Store documents in database</li>
-        <li>Guest can search for a document and download if found</li>
-        <li>Documents for guest are encrypted and the customer gets the password to be able to read it</li>
-        <li>Documents for logged in user are decrypted</li>
-        <li>Contact form sends messages via email</li>
-        <li>Guests can leave reviews</li>
-      </ul>
-    </div>
-
-    <div class="section admin">
-      <h4>Admin Panel</h4>
-      <ul>
-        <li>
-          <h5>Manage categories, products and sevices.</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-          <img src="@/assets/vag/category.webp" alt="">
-        </li>
-        <li>
-          <h5>Simply create and manage invoices</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-          <img src="@/assets/vag/create_invoice.webp" alt="">
-        </li>
-        <li>
-          <h5>Browse invoices or search for a specific one</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-          <img src="@/assets/vag/browse_invoice.webp" alt="">
-        </li>
-        <li>
-          <h5>Generate and download invoice</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-          <img src="@/assets/vag/pdf.webp" alt="" class="img-pdf">
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <div class="inner">
-        <h4>Mobile Performance Tests</h4>
-        <img src="@/assets/vag/test-mobile.webp" alt="mobile website performance tests result">
-      </div>
-      <div class="inner">
-        <h4>Desktop Performance Tests</h4>
-        <img src="@/assets/vag/test-desktop.webp" alt="desktop website performance tests result">
-      </div>
-    </div>
-
-    <div class="section links">
-      <a href="https://devpat.online/projects/vag/public/index.php" target="_blank">
-        <span>
-          <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
-        </span>
-        Website
-      </a>
-      <a href="https://github.com/Piecuch-Patryk/vag-autoservice" target="_blank">
-        <span>
-          <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
-        </span>
-        Github
-      </a>
-    </div>
-
-    <div class="close">
+  <transition name="fade">
+    <div v-show="modalActive" class="modal">
       <button @click="this.modalActive = false">&times;</button>
-    </div>
 
-  </div>
+      <div class="section">
+        <h3>VAG Autoserwis - summary</h3>
+      </div>
+
+      <div class="section">
+        <h4>Description</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus fugit quos vitae aliquam esse. Inventore saepe eum error, nostrum quaerat consequatur cumque laborum quibusdam! Minima quo tenetur id animi amet!</p>
+      </div>
+
+      <div class="section">
+        <h4>Client Requirements</h4>
+        <ul>
+          <li>Design the whole app with graphics, content and SEO</li>
+          <li>Build the app with suitable technology</li>
+          <li>Must be user-friendly and fast loading</li>
+          <li>CRUD - categories, services, products</li>
+          <li>Change categories' order with drag&drop</li>
+          <li>Each category has many products (relational database)</li>
+          <li>PDF creator - logged in user can create invoice document</li>
+          <li>Amount is calculated based on the products' price and quantity</li>
+          <li>Store documents in database</li>
+          <li>Guest can search for a document and download if found</li>
+          <li>Documents for guest are encrypted and the customer gets the password to be able to read it</li>
+          <li>Documents for logged in user are decrypted</li>
+          <li>Contact form sends messages via email</li>
+          <li>Guests can leave reviews</li>
+        </ul>
+      </div>
+
+      <div class="section admin">
+        <h4>Admin Panel</h4>
+        <ul>
+          <li>
+            <h5>Manage categories, products and sevices.</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+            <img src="@/assets/vag/category.webp" alt="">
+          </li>
+          <li>
+            <h5>Simply create and manage invoices</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+            <img src="@/assets/vag/create_invoice.webp" alt="">
+          </li>
+          <li>
+            <h5>Browse invoices or search for a specific one</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+            <img src="@/assets/vag/browse_invoice.webp" alt="">
+          </li>
+          <li>
+            <h5>Generate and download invoice</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
+            <img src="@/assets/vag/pdf.webp" alt="" class="img-pdf">
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="inner">
+          <h4>Mobile Performance Tests</h4>
+          <img src="@/assets/vag/test-mobile.webp" alt="mobile website performance tests result">
+        </div>
+        <div class="inner">
+          <h4>Desktop Performance Tests</h4>
+          <img src="@/assets/vag/test-desktop.webp" alt="desktop website performance tests result">
+        </div>
+      </div>
+
+      <div class="section links">
+        <a href="https://devpat.online/projects/vag/public/index.php" target="_blank">
+          <span>
+            <font-awesome-icon :icon="['fa-solid', 'fa-globe']"></font-awesome-icon>
+          </span>
+          Website
+        </a>
+        <a href="https://github.com/Piecuch-Patryk/vag-autoservice" target="_blank">
+          <span>
+            <font-awesome-icon :icon="['fa-brands', 'fa-square-github']" />
+          </span>
+          Github
+        </a>
+      </div>
+
+      <div class="close">
+        <button @click="this.modalActive = false">&times;</button>
+      </div>
+
+    </div>
+  </transition>
 </template>
 
 <script>

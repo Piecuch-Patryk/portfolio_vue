@@ -127,6 +127,12 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 @keyframes bounceMobile {
   0% {
 		animation-timing-function: ease-in;

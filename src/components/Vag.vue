@@ -37,7 +37,7 @@
         </div>
         <div class="cube__face cube__face--3">
           <p>
-            Commercial project, designed and build from scratch with Laravel 9.
+            Commercial project, designed and build from scratch with Laravel 9 and Bootstrap 5.
           </p>
           <div>
             <button @click="this.modalActive = true" class="btn">Read more</button>
@@ -48,8 +48,10 @@
           <ul>
             <li>PHP</li>
             <li>MySQL</li>
-            <li>CSS</li>
-            <li>Vue3</li>
+            <li>SASS</li>
+            <li>Laravel 9</li>
+            <li>Bootstrap 5</li>
+            <li>GlideJs</li>
           </ul>
         </div>
         <div class="cube__face cube__face--4">
@@ -84,7 +86,7 @@
 
       <div class="section">
         <h4>Description</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus fugit quos vitae aliquam esse. Inventore saepe eum error, nostrum quaerat consequatur cumque laborum quibusdam! Minima quo tenetur id animi amet!</p>
+        <p>Commercial CRUD made for car mechanic company based in Poland. I've designed and developed the whole project using Figma, Gimp, Laravel 9, Bootstrap 5 and GlideJs. The page contains two sliders. The first one is a Bootstrap Carousel and the other one is GlideJs to slide reviews. A logged-in employee can easily manage categories, services, products, reviews and company data displayed for guest users.</p>
       </div>
 
       <div class="section">
@@ -92,15 +94,15 @@
         <ul>
           <li>Design the whole app with graphics, content and SEO</li>
           <li>Build the app with suitable technology</li>
-          <li>Must be user-friendly and fast loading</li>
-          <li>CRUD - categories, services, products</li>
+          <li>User-friendly and fast loading</li>
+          <li>CRUD - categories, services, products, reviews, company data, user data</li>
           <li>Change categories' order with drag&drop</li>
           <li>Each category has many products (relational database)</li>
           <li>PDF creator - logged in user can create invoice document</li>
           <li>Amount is calculated based on the products' price and quantity</li>
           <li>Store documents in database</li>
-          <li>Guest can search for a document and download if found</li>
-          <li>Documents for guest are encrypted and the customer gets the password to be able to read it</li>
+          <li>Guest can search and download the invoice</li>
+          <li>Documents for guests are encrypted and the customer gets the password to be able to read it</li>
           <li>Documents for logged in user are decrypted</li>
           <li>Contact form sends messages via email</li>
           <li>Guests can leave reviews</li>
@@ -111,24 +113,24 @@
         <h4>Admin Panel</h4>
         <ul>
           <li>
-            <h5>Manage categories, products and sevices.</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-            <img src="@/assets/vag/category.webp" alt="">
+            <h5>Manage categories, products, sevices and reviews.</h5>
+            <p>Simply manage all the data needed to display the page to guests or create an invoice. Assign some services to categories and create products to use with invoice creator.</p>
+            <img src="@/assets/vag/category.webp" alt="VAG-Autoserwice admin page screenshot - categories">
           </li>
           <li>
             <h5>Simply create and manage invoices</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-            <img src="@/assets/vag/create_invoice.webp" alt="">
+            <p>Save time by using the invoice creator and make a new document quick and easy. Add or remove list elements dynamically. All of the empty rows are automatically removed from the invoice.</p>
+            <img src="@/assets/vag/create_invoice.webp" alt="VAG-Autoserwice admin page screenshot - create invoice">
           </li>
           <li>
             <h5>Browse invoices or search for a specific one</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-            <img src="@/assets/vag/browse_invoice.webp" alt="">
+            <p></p>
+            <img src="@/assets/vag/browse_invoice.webp" alt="VAG-Autoserwice admin page screenshot - browse invoices">
           </li>
           <li>
             <h5>Generate and download invoice</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, eligendi veniam at delectus totam magni quae distinctio neque dolores, harum architecto nostrum facilis laborum, corporis alias repellendus quibusdam dolorum doloremque?</p>
-            <img src="@/assets/vag/pdf.webp" alt="" class="img-pdf">
+            <p></p>
+            <img src="@/assets/vag/pdf.webp" alt="VAG-Autoserwice admin page screenshot - pdf document" class="img-pdf">
           </li>
         </ul>
       </div>
@@ -475,6 +477,10 @@ export default {
       .inner {
         text-align: center;
         padding: 1rem;
+
+        img {
+          box-shadow: none;
+        }
       }
       
       img {
